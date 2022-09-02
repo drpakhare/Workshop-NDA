@@ -1,0 +1,4 @@
+- source: project
+  quarto-pub:
+    - id: 1ab35d39-1628-4a09-bad8-ce8c532daedf
+      url: 'https://quartopub.com/sites/cfm-workshops/ada-workshop'
