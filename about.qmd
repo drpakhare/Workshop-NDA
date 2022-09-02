@@ -1,0 +1,9 @@
+---
+title: "About"
+---
+
+**Workshop Brochure**
+
+![Brochure P-1](Workshop%20on%20Nutritional%20Data%20Analysis/1.png)
+
+![Brochure P-2](Workshop%20on%20Nutritional%20Data%20Analysis/2.png)

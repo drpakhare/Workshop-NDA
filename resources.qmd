@@ -1,0 +1,22 @@
+---
+title: "Resources"
+editor: visual
+---
+
+# **Access the WHO Anthro Tool**
+
+[**Information about tools**](https://apps.who.int/nutgrowthdb/software/en/ "WHO Webpage")
+
+[**WHO Anthro Survey Analyser**](https://worldhealthorg.shinyapps.io/anthro/ "Online Tool")**- Online**
+
+# **Other Useful Tools**
+
+## [**Canadian Pediatric Endocrine Group - Shiny Apps for Anthropometric Calculations**](https://cpeg-gcep.net/content/shiny-apps "CEGP")
+
+-   [*who2007*](https://cpeg-gcep.shinyapps.io/who2007_cpeg/): a *Shiny* app for children ages 5--19 years, based on the [WHO growth *reference*](http://www.who.int/growthref/en/)
+
+-   [Growth chart plotter](https://cpeg-gcep.shinyapps.io/growth219/) for WHO (for children 2--19 years) and US CDC (2--20 years)
+
+-   [Growth chart plotter for WHO](https://cpeg-gcep.shinyapps.io/growth02/) for children 0--2 years
+
+-   [How to create csv files and calculate age in months in excel?](https://cpeg-gcep.net/sites/default/files/plotter/csv.html#2)
