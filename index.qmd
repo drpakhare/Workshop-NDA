@@ -3,3 +3,5 @@ title: "Workshop on Anthropometric Data Analysis"
 ---
 
 This website is developed for the Anthropometric Data Analysis Workshop organized by the Department of Community and Family Medicine, All India Institute of Medical Sciences, Bhopal. This website hosts workshop resource materials for the use of participants.
+
+First workshop is scheduled on 7 September 2022.

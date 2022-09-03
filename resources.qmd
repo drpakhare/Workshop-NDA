@@ -11,7 +11,7 @@ editor: visual
 
 # **Other Useful Tools**
 
-## [**Canadian Pediatric Endocrine Group - Shiny Apps for Anthropometric Calculations**](https://cpeg-gcep.net/content/shiny-apps "CEGP")
+[**Canadian Pediatric Endocrine Group - Shiny Apps for Anthropometric Calculations**](https://cpeg-gcep.net/content/shiny-apps "CEGP")
 
 -   [*who2007*](https://cpeg-gcep.shinyapps.io/who2007_cpeg/): a *Shiny* app for children ages 5--19 years, based on the [WHO growth *reference*](http://www.who.int/growthref/en/)
 

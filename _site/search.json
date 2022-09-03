@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Workshop on Anthropometric Data Analysis",
     "section": "",
-    "text": "This website is developed for the Anthropometric Data Analysis Workshop organized by the Department of Community and Family Medicine, All India Institute of Medical Sciences, Bhopal. This website hosts workshop resource materials for the use of participants."
+    "text": "First workshop is being"
   },
   {
     "objectID": "about.html",
@@ -12,6 +12,13 @@
     "title": "About",
     "section": "",
     "text": "Brochure P-1\n\n\n\n\n\nBrochure P-2"
+  },
+  {
+    "objectID": "datasets.html",
+    "href": "datasets.html",
+    "title": "Datasets",
+    "section": "",
+    "text": "Preparing data for importing in anthro\nData quality assessment"
   },
   {
     "objectID": "resources.html",
@@ -33,5 +40,12 @@
     "title": "Schedule",
     "section": "",
     "text": "Time\nSession\nSession Type\nSpeaker/ Key Facilitator\n\n\n\n\n9:30-10:00\nIntroduction to workshop\n\nProf(Dr) Arun M Kokane, Prof & Head, Community & Family Medicine, AIIMS Bhopal\n\n\n10:00-10:30\nFormal Inauguration\n\nProf(Dr) Ajai Singh, Executive Director, AIIMS Bhopal\n\n\n10:45-11:30\nScientific basis of anthropometric measurements & indicators to monitor physical growth\nLecture\nDr Ankur Joshi, Faculty, Community & Family Medicine, AIIMS Bhopal\n\n\n11:45-12:30\nIntroduction to Anthro Survey Analyser\nPreparing and importing anthropometric data\nLecture\nHands-on-practice\nDr Sudhir Verma, Senior Resident, Community & Family Medicine, AIIMS Bhopal\n\n\n12:45-13:30\nComputing Anthropometric Indicators\nHands-on-practice\nDr Revadi G, Senior Resident, Community & Family Medicine, AIIMS Bhopal\n\n\n15:00-15:30\nUnderstanding results\nLecture\nDr Abhijit Pakhare, Faculty, Community & Family Medicine, AIIMS Bhopal\n\n\n15:30-16:00\nAnthropometric Data Quality Assessment\nHands-on-practice\nDr Ankur Joshi, Faculty, Community & Family Medicine, AIIMS Bhopal\n\n\n16:10-16:40\nGenerating summary report, exporting z-scores data\nHands-on-practice\nDr Abhijit Pakhare, Faculty, Community & Family Medicine, AIIMS Bhopal\n\n\n16:45-17:15\nValedictory Session and Certificate Distribution\n\nOrganizing Team"
+  },
+  {
+    "objectID": "workshop_kit.html",
+    "href": "workshop_kit.html",
+    "title": "Workshop Kit",
+    "section": "",
+    "text": "Anthro Survey Analyser - Quick Guide\nData Quality Assessment Guidlines"
   }
 ]

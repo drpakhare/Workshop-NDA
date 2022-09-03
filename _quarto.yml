@@ -10,6 +10,13 @@ website:
       - about.qmd
       - Schedule.qmd
       - resources.qmd
+      - href: datasets.qmd
+        text: Datasets
+      - href: workshop_kit.qmd
+        text: Workshop Kit
+        
+
+      
 
 format:
   html:

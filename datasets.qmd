@@ -1,0 +1,9 @@
+---
+title: "Datasets"
+editor: visual
+---
+
+## Datasheets for Practice
+
+-   [Preparing data for importing in anthro](https://github.com/drpakhare/Workshop-NDA/blob/master/datasets_practice/dataset_preparation.xlsx)
+-   [Data quality assessment](https://github.com/drpakhare/Workshop-NDA/blob/master/datasets_practice/dataset_quality.xlsx)
