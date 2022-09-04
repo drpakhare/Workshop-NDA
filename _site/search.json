@@ -4,42 +4,35 @@
     "href": "index.html",
     "title": "Workshop on Anthropometric Data Analysis",
     "section": "",
-    "text": "First workshop is being"
+    "text": "First workshop is scheduled on 7 September 2022."
   },
   {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "Brochure P-1\n\n\n\n\n\nBrochure P-2"
+    "text": "Department of Community & Family Medicine\nDepartment has been pivotal in imparting research methodology, epidemiology and biostatistics trainings. It has a set up a computer laboratory and conducted workshops for faculty and SRs of the institute. Faculty of the department has expertise in advanced data analysis particularly in the fields of nutritional data. Department also provides technical support to nutrition related public health programs in the state of Madhya Pradesh through CSAM wing of Regional Centre of Excellence for Nutritional Rehabilitation, Resource & Training."
   },
   {
     "objectID": "datasets.html",
     "href": "datasets.html",
     "title": "Datasets",
     "section": "",
-    "text": "Preparing data for importing in anthro\nData quality assessment"
+    "text": "Preparing data for importing in anthro\nPractice Dataset-2\nData quality assessment"
   },
   {
     "objectID": "resources.html",
     "href": "resources.html",
     "title": "Resources",
     "section": "",
-    "text": "Information about tools\nWHO Anthro Survey Analyser- Online"
-  },
-  {
-    "objectID": "resources.html#canadian-pediatric-endocrine-group---shiny-apps-for-anthropometric-calculations",
-    "href": "resources.html#canadian-pediatric-endocrine-group---shiny-apps-for-anthropometric-calculations",
-    "title": "Resources",
-    "section": "Canadian Pediatric Endocrine Group - Shiny Apps for Anthropometric Calculations",
-    "text": "Canadian Pediatric Endocrine Group - Shiny Apps for Anthropometric Calculations\n\nwho2007: a Shiny app for children ages 5–19 years, based on the WHO growth reference\nGrowth chart plotter for WHO (for children 2–19 years) and US CDC (2–20 years)\nGrowth chart plotter for WHO for children 0–2 years\nHow to create csv files and calculate age in months in excel?"
+    "text": "Other Useful Tools\nCanadian Pediatric Endocrine Group - Shiny Apps for Anthropometric Calculations\n\nwho2007: a Shiny app for children ages 5–19 years, based on the WHO growth reference\nGrowth chart plotter for WHO (for children 2–19 years) and US CDC (2–20 years)\nGrowth chart plotter for WHO for children 0–2 years\nHow to create csv files and calculate age in months in excel?\n\n\n\nGrowth Standards\n\nWHO Growth Standards for 0-5 year Children\nWHO Growth References for 5-19 years\nIndian Academy of Pediatrics Growth Charts (0-18 years)\n\n\n\nAdditional interesting readings\n\nWHO Technical Report : Physical status : the use of and interpretation of anthropometry, report of a WHO expert committee\nThe LMS method for constructing normalized growth standards(Cole 1990)\nRevised IAP Growth Reference(Khadilkar et al. 2015)\nMethods- WHO Growth Standards (0-5 years)(Borghi et al. 2006)\nMethods-WHO school age and adolescent growth reference development(Onis et al. 2007)\n\n\n\n\n\n\nReferences\n\nBorghi, E., M. de Onis, C. Garza, J. Van den Broeck, E. A. Frongillo, L. Grummer-Strawn, S. Van Buuren, et al. 2006. “Construction of the World Health Organization Child Growth Standards: Selection of Methods for Attained Growth Curves.” Statistics in Medicine 25 (2): 247–65. https://doi.org/10.1002/sim.2227.\n\n\nCole, T. J. 1990. “The LMS method for constructing normalized growth standards.” European Journal of Clinical Nutrition 44 (1): 45–60.\n\n\nKhadilkar, Vaman, Sangeeta Yadav, K. K. Agrawal, Suchit Tamboli, Monidipa Banerjee, Alice Cherian, Jagdish P. Goyal, et al. 2015. “Revised IAP Growth Charts for Height, Weight and Body Mass Index for 5- to 18-Year-Old Indian Children.” Indian Pediatrics 52 (1): 47–55. https://doi.org/10.1007/s13312-015-0566-5.\n\n\nOnis, Mercedes de, Adelheid W Onyango, Elaine Borghi, Amani Siyam, Chizuru Nishida, and Jonathan Siekmann. 2007. “Development of a WHO Growth Reference for School-Aged Children and Adolescents.” Bulletin of the World Health Organization 85 (9): 660–67. https://doi.org/10.2471/BLT.07.043497."
   },
   {
     "objectID": "Schedule.html",
     "href": "Schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "Time\nSession\nSession Type\nSpeaker/ Key Facilitator\n\n\n\n\n9:30-10:00\nIntroduction to workshop\n\nProf(Dr) Arun M Kokane, Prof & Head, Community & Family Medicine, AIIMS Bhopal\n\n\n10:00-10:30\nFormal Inauguration\n\nProf(Dr) Ajai Singh, Executive Director, AIIMS Bhopal\n\n\n10:45-11:30\nScientific basis of anthropometric measurements & indicators to monitor physical growth\nLecture\nDr Ankur Joshi, Faculty, Community & Family Medicine, AIIMS Bhopal\n\n\n11:45-12:30\nIntroduction to Anthro Survey Analyser\nPreparing and importing anthropometric data\nLecture\nHands-on-practice\nDr Sudhir Verma, Senior Resident, Community & Family Medicine, AIIMS Bhopal\n\n\n12:45-13:30\nComputing Anthropometric Indicators\nHands-on-practice\nDr Revadi G, Senior Resident, Community & Family Medicine, AIIMS Bhopal\n\n\n15:00-15:30\nUnderstanding results\nLecture\nDr Abhijit Pakhare, Faculty, Community & Family Medicine, AIIMS Bhopal\n\n\n15:30-16:00\nAnthropometric Data Quality Assessment\nHands-on-practice\nDr Ankur Joshi, Faculty, Community & Family Medicine, AIIMS Bhopal\n\n\n16:10-16:40\nGenerating summary report, exporting z-scores data\nHands-on-practice\nDr Abhijit Pakhare, Faculty, Community & Family Medicine, AIIMS Bhopal\n\n\n16:45-17:15\nValedictory Session and Certificate Distribution\n\nOrganizing Team"
+    "text": "Time\nSession\nSpeaker/ Key Facilitator\n\n\n\n\n9:30-10:00\nIntroduction to workshop\nProf(Dr) Arun M Kokane, Prof & Head, Community & Family Medicine, AIIMS Bhopal\n\n\n10:00-10:30\nFormal Inauguration\nProf(Dr) Ajai Singh, Executive Director, AIIMS Bhopal\n\n\n10:45-11:30\nScientific basis of anthropometric measurements & indicators to monitor physical growth\nDr Ankur Joshi, Faculty, Community & Family Medicine, AIIMS Bhopal\n\n\n11:45-12:30\nIntroduction to Anthro Survey Analyser\nPreparing and importing anthropometric data (Hands-on-practice)\nDr Sudhir Verma, Senior Resident, Community & Family Medicine, AIIMS Bhopal\n\n\n12:45-13:30\nComputing Anthropometric Indicators for 0-5 year children and understanding results (Hands-on-practice)\nDr Revadi G, Senior Resident, Community & Family Medicine, AIIMS Bhopal\n\n\n14:30-15:15\nComputing Anthropometric Indicators for 5-19 year children and understanding results (Hands-on-practice)\nDr Abhijit Pakhare, Faculty, Community & Family Medicine, AIIMS Bhopal\n\n\n15:30-16:00\nAnthropometric Data Quality Assessment (Hands-on-practice)\nDr Ankur Joshi, Faculty, Community & Family Medicine, AIIMS Bhopal\n\n\n16:10-16:40\nGenerating summary report, exporting z-scores data (Hands-on-practice)\nDr Abhijit Pakhare, Faculty, Community & Family Medicine, AIIMS Bhopal\n\n\n16:45-17:15\nValedictory Session and Certificate Distribution\nOrganizing Team"
   },
   {
     "objectID": "workshop_kit.html",

@@ -1,15 +1,18 @@
 ---
 title: "Resources"
 editor: visual
+bibliography: references.bib
 ---
 
-# **Access the WHO Anthro Tool**
+# Access the WHO Anthro & AnthroPlus software
 
-[**Information about tools**](https://apps.who.int/nutgrowthdb/software/en/ "WHO Webpage")
+[**Information about tools**](https://apps.who.int/nutgrowthdb/software/en/ "WHO Webpage")**- Links for online and offline Anthro software for 0-5 years children**
 
-[**WHO Anthro Survey Analyser**](https://worldhealthorg.shinyapps.io/anthro/ "Online Tool")**- Online**
+[**WHO Anthro Survey Analyser**](https://worldhealthorg.shinyapps.io/anthro/ "Online Tool")**- Online for 0-5 years children**
 
-# **Other Useful Tools**
+[**WHO AnthroPlus software**](https://www.who.int/tools/growth-reference-data-for-5to19-years/application-tools) **- For 5-19 years children**
+
+# Other Useful Tools
 
 [**Canadian Pediatric Endocrine Group - Shiny Apps for Anthropometric Calculations**](https://cpeg-gcep.net/content/shiny-apps "CEGP")
 
@@ -20,3 +23,23 @@ editor: visual
 -   [Growth chart plotter for WHO](https://cpeg-gcep.shinyapps.io/growth02/) for children 0--2 years
 
 -   [How to create csv files and calculate age in months in excel?](https://cpeg-gcep.net/sites/default/files/plotter/csv.html#2)
+
+# Growth Standards
+
+-   [WHO Growth Standards for 0-5 year Children](https://www.who.int/tools/child-growth-standards/standards)
+
+-   [WHO Growth References for 5-19 years](https://www.who.int/tools/growth-reference-data-for-5to19-years/indicators)
+
+-   [Indian Academy of Pediatrics Growth Charts (0-18 years)](https://iapindia.org/iap-growth-charts/)
+
+# Additional interesting readings
+
+-   [WHO Technical Report : Physical status : the use of and interpretation of anthropometry, report of a WHO expert committee](https://www.who.int/publications/i/item/9241208546)
+
+-   The LMS method for constructing normalized growth standards[@cole1990]
+
+-   Revised IAP Growth Reference[@khadilkar2015]
+
+-   Methods- WHO Growth Standards (0-5 years)[@borghi2006]
+
+-   Methods-WHO school age and adolescent growth reference development[@deonis2007]

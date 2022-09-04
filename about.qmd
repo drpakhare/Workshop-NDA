@@ -2,8 +2,14 @@
 title: "About"
 ---
 
-**Workshop Brochure**
+### [**AIIMS Bhopal**](https://www.aiimsbhopal.edu.in)
 
-![Brochure P-1](Workshop%20on%20Nutritional%20Data%20Analysis/1.png)
+![](images/logo_112.jpeg){fig-align="center" width="266"}
 
-![Brochure P-2](Workshop%20on%20Nutritional%20Data%20Analysis/2.png)
+AIIMS Bhopal is one of the apex healthcare institutes established by the Ministry of Health & Family Welfare, Government of India under the Pradhan Mantri Swasthya Suraksha Yojana (PMSSY). AIIMS, Bhopal has the vision to make it as one of the excellent Health Care Centers to serve the people of Central India as envisaged under the PMSSY.
+
+![](images/banner9_1.jpeg)
+
+### [**Department of Community & Family Medicine**](https://aiimsbhopal.edu.in/index_controller/Details?did=11&id=57#SHTM)
+
+Department has been pivotal in imparting research methodology, epidemiology and biostatistics trainings. It has a set up a computer laboratory and conducted workshops for faculty and SRs of the institute. Faculty of the department has expertise in advanced data analysis particularly in the fields of nutritional data. Department also provides technical support to nutrition related public health programs in the state of Madhya Pradesh through CSAM wing of Regional Centre of Excellence for Nutritional Rehabilitation, Resource & Training.
