@@ -95,7 +95,7 @@
     "href": "anthro_5_19.html#anthroplus-demo-on-r",
     "title": "Computing z-scores for 5-19 years",
     "section": "anthroplus demo on R",
-    "text": "anthroplus demo on R\nImport data\n\n# Load required packages (You should install them first and then you can load)\nlibrary(tidyverse)\nlibrary(anthroplus)\n\n# Import dataset\ndf_anthro_plus_practice <- read.csv(\"https://raw.githubusercontent.com/drpakhare/Workshop-NDA/master/datasets_practice/3_dataset_practice_anthro_plus.csv\")\n\nView data\n\nhead(df_anthro_plus_practice)\n\n  id District Cluster sex Age agemons weight height  X\n1  1        2      42   1  19     228   66.0  173.4 NA\n2  2        2      68   1  17     204   65.0  164.8 NA\n3  3        2      54   1  19     228   63.0  164.0 NA\n4  4        3      90   1  17     204   63.0  168.8 NA\n5  5        3      84   1  18     216   61.5  164.0 NA\n6  6        2      64   1  18     216   61.0  163.1 NA"
+    "text": "anthroplus demo on R\nImport data\n\n# Load required packages (You should install them first and then you can load)\nlibrary(tidyverse)\nlibrary(anthroplus)\n\n# Import dataset\ndf_anthro_plus_practice <- read.csv(\"https://raw.githubusercontent.com/drpakhare/Workshop-NDA/master/datasets_practice/3_dataset_practice_anthro_plus.csv\")\n\nView data\n\nhead(df_anthro_plus_practice)\n\n  id sex Age agemons weight height District Cluster\n1  1   1  19     228   66.0  173.4        2      42\n2  2   1  17     204   65.0  164.8        2      68\n3  3   1  19     228   63.0  164.0        2      54\n4  4   1  17     204   63.0  168.8        3      90\n5  5   1  18     216   61.5  164.0        3      84\n6  6   1  18     216   61.0  163.1        2      64"
   },
   {
     "objectID": "anthro_5_19.html#z-score-calculation",
@@ -147,6 +147,55 @@
     "text": "WHO Anthro-Plus Software\n\n\n\nWorks on Windows\nRequires dot net framework to be installed\nAvailable free and can be downloaded from here"
   },
   {
+    "objectID": "anthro_5_19.html#anthro-plus-data-format",
+    "href": "anthro_5_19.html#anthro-plus-data-format",
+    "title": "Computing z-scores for 5-19 years",
+    "section": "Anthro-Plus Data Format",
+    "text": "Anthro-Plus Data Format"
+  },
+  {
+    "objectID": "anthro_5_19.html#anthro-plus---open-nutrition-survey",
+    "href": "anthro_5_19.html#anthro-plus---open-nutrition-survey",
+    "title": "Computing z-scores for 5-19 years",
+    "section": "Anthro-Plus - Open Nutrition Survey",
+    "text": "Anthro-Plus - Open Nutrition Survey"
+  },
+  {
+    "objectID": "anthro_5_19.html#anthro-plus-import-file",
+    "href": "anthro_5_19.html#anthro-plus-import-file",
+    "title": "Computing z-scores for 5-19 years",
+    "section": "Anthro-Plus Import File",
+    "text": "Anthro-Plus Import File"
+  },
+  {
+    "objectID": "anthro_5_19.html#anthro-plus-import-file-1",
+    "href": "anthro_5_19.html#anthro-plus-import-file-1",
+    "title": "Computing z-scores for 5-19 years",
+    "section": "Anthro-Plus Import File",
+    "text": "Anthro-Plus Import File"
+  },
+  {
+    "objectID": "anthro_5_19.html#anthro-plus---field-mapping",
+    "href": "anthro_5_19.html#anthro-plus---field-mapping",
+    "title": "Computing z-scores for 5-19 years",
+    "section": "Anthro-Plus - Field mapping",
+    "text": "Anthro-Plus - Field mapping"
+  },
+  {
+    "objectID": "anthro_5_19.html#anthro-plus--z-scores-and-cluster-report",
+    "href": "anthro_5_19.html#anthro-plus--z-scores-and-cluster-report",
+    "title": "Computing z-scores for 5-19 years",
+    "section": "Anthro-Plus- z-scores and cluster report",
+    "text": "Anthro-Plus- z-scores and cluster report"
+  },
+  {
+    "objectID": "anthro_5_19.html#queries",
+    "href": "anthro_5_19.html#queries",
+    "title": "Computing z-scores for 5-19 years",
+    "section": "Queries?",
+    "text": "Queries?\nThank You"
+  },
+  {
     "objectID": "datasets.html",
     "href": "datasets.html",
     "title": "Datasets",
@@ -172,7 +221,7 @@
     "href": "Schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "Time\nSession\nSpeaker/ Key Facilitator\n\n\n\n\n9:30-10:00\nIntroduction to workshop\nProf(Dr) Arun M Kokane, Prof & Head, Community & Family Medicine, AIIMS Bhopal\n\n\n10:00-10:30\nFormal Inauguration\nProf(Dr) Ajai Singh, Executive Director, AIIMS Bhopal\n\n\n10:45-11:30\nScientific basis of anthropometric measurements & indicators to monitor physical growth\nDr Ankur Joshi, Faculty, Community & Family Medicine, AIIMS Bhopal\n\n\n11:45-12:30\nIntroduction to Anthro Survey Analyser\nPreparing and importing anthropometric data (Hands-on-practice)\nDr Sudhir Verma, Senior Resident, Community & Family Medicine, AIIMS Bhopal\n\n\n12:45-13:30\nComputing Anthropometric Indicators for 0-5 year children and understanding results (Hands-on-practice)\nDr Revadi G, Senior Resident, Community & Family Medicine, AIIMS Bhopal\n\n\n14:30-15:15\nComputing Anthropometric Indicators for 5-19 year children and understanding results (Hands-on-practice)\nDr Abhijit Pakhare, Faculty, Community & Family Medicine, AIIMS Bhopal\n\n\n15:30-16:00\nAnthropometric Data Quality Assessment (Hands-on-practice)\nDr Ankur Joshi, Faculty, Community & Family Medicine, AIIMS Bhopal\n\n\n16:10-16:40\nGenerating summary report, exporting z-scores data (Hands-on-practice)\nDr Abhijit Pakhare, Faculty, Community & Family Medicine, AIIMS Bhopal\n\n\n16:45-17:15\nValedictory Session and Certificate Distribution\nOrganizing Team"
+    "text": "Time\nSession\nSpeaker/ Key Facilitator\n\n\n\n\n9:00-9:30\nRegistration\n\n\n\n9:30-10:00\nIntroduction to workshop\nProf(Dr) Arun M Kokane, Prof & Head, Community & Family Medicine, AIIMS Bhopal\n\n\n10:00-10:30\nFormal Inauguration\nProf(Dr) Ajai Singh, Executive Director, AIIMS Bhopal\n\n\n10:45-11:30\nScientific basis of anthropometric measurements & indicators to monitor physical growth\nDr Ankur Joshi, Faculty, Community & Family Medicine, AIIMS Bhopal\n\n\n11:45-12:30\nIntroduction to Anthro Survey Analyser\nPreparing and importing anthropometric data (Hands-on-practice)\nDr Sudhir Verma, Senior Resident, Community & Family Medicine, AIIMS Bhopal\n\n\n12:45-13:30\nComputing Anthropometric Indicators for 0-5 year children and understanding results (Hands-on-practice)\nDr Revadi G, Senior Resident, Community & Family Medicine, AIIMS Bhopal\n\n\n14:30-15:15\nComputing Anthropometric Indicators for 5-19 year children and understanding results (Hands-on-practice)\nDr Abhijit Pakhare, Faculty, Community & Family Medicine, AIIMS Bhopal\n\n\n15:30-16:00\nAnthropometric Data Quality Assessment (Hands-on-practice)\nDr Ankur Joshi, Faculty, Community & Family Medicine, AIIMS Bhopal\n\n\n16:10-16:40\nGenerating summary report, exporting z-scores data (Hands-on-practice)\nDr Abhijit Pakhare, Faculty, Community & Family Medicine, AIIMS Bhopal\n\n\n16:45-17:15\nValedictory Session and Certificate Distribution\nOrganizing Team"
   },
   {
     "objectID": "workshop_kit.html",

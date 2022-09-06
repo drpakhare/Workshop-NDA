@@ -489,13 +489,13 @@
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">head</span>(df_anthro_plus_practice)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  id District Cluster sex Age agemons weight height  X
-1  1        2      42   1  19     228   66.0  173.4 NA
-2  2        2      68   1  17     204   65.0  164.8 NA
-3  3        2      54   1  19     228   63.0  164.0 NA
-4  4        3      90   1  17     204   63.0  168.8 NA
-5  5        3      84   1  18     216   61.5  164.0 NA
-6  6        2      64   1  18     216   61.0  163.1 NA</code></pre>
+<pre><code>  id sex Age agemons weight height District Cluster
+1  1   1  19     228   66.0  173.4        2      42
+2  2   1  17     204   65.0  164.8        2      68
+3  3   1  19     228   63.0  164.0        2      54
+4  4   1  17     204   63.0  168.8        3      90
+5  5   1  18     216   61.5  164.0        3      84
+6  6   1  18     216   61.0  163.1        2      64</code></pre>
 </div>
 </div>
 </section>
@@ -577,12 +577,12 @@
 <div class="cell">
 <div class="cell-output-display">
 
-<div id="psnztruhtk" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="ayejbvmtjx" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#psnztruhtk .gt_table {
+#ayejbvmtjx .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -607,7 +607,7 @@
   border-left-color: #D3D3D3;
 }
 
-#psnztruhtk .gt_heading {
+#ayejbvmtjx .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -619,7 +619,7 @@
   border-right-color: #D3D3D3;
 }
 
-#psnztruhtk .gt_title {
+#ayejbvmtjx .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -629,7 +629,7 @@
   border-bottom-width: 0;
 }
 
-#psnztruhtk .gt_subtitle {
+#ayejbvmtjx .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -639,13 +639,13 @@
   border-top-width: 0;
 }
 
-#psnztruhtk .gt_bottom_border {
+#ayejbvmtjx .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#psnztruhtk .gt_col_headings {
+#ayejbvmtjx .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -660,7 +660,7 @@
   border-right-color: #D3D3D3;
 }
 
-#psnztruhtk .gt_col_heading {
+#ayejbvmtjx .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -680,7 +680,7 @@
   overflow-x: hidden;
 }
 
-#psnztruhtk .gt_column_spanner_outer {
+#ayejbvmtjx .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -692,15 +692,15 @@
   padding-right: 4px;
 }
 
-#psnztruhtk .gt_column_spanner_outer:first-child {
+#ayejbvmtjx .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#psnztruhtk .gt_column_spanner_outer:last-child {
+#ayejbvmtjx .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#psnztruhtk .gt_column_spanner {
+#ayejbvmtjx .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -712,7 +712,7 @@
   width: 100%;
 }
 
-#psnztruhtk .gt_group_heading {
+#ayejbvmtjx .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -734,7 +734,7 @@
   vertical-align: middle;
 }
 
-#psnztruhtk .gt_empty_group_heading {
+#ayejbvmtjx .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -749,15 +749,15 @@
   vertical-align: middle;
 }
 
-#psnztruhtk .gt_from_md > :first-child {
+#ayejbvmtjx .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#psnztruhtk .gt_from_md > :last-child {
+#ayejbvmtjx .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#psnztruhtk .gt_row {
+#ayejbvmtjx .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -776,7 +776,7 @@
   overflow-x: hidden;
 }
 
-#psnztruhtk .gt_stub {
+#ayejbvmtjx .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -788,7 +788,7 @@
   padding-left: 12px;
 }
 
-#psnztruhtk .gt_summary_row {
+#ayejbvmtjx .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -798,7 +798,7 @@
   padding-right: 5px;
 }
 
-#psnztruhtk .gt_first_summary_row {
+#ayejbvmtjx .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -808,7 +808,7 @@
   border-top-color: #D3D3D3;
 }
 
-#psnztruhtk .gt_grand_summary_row {
+#ayejbvmtjx .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -818,7 +818,7 @@
   padding-right: 5px;
 }
 
-#psnztruhtk .gt_first_grand_summary_row {
+#ayejbvmtjx .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -828,11 +828,11 @@
   border-top-color: #D3D3D3;
 }
 
-#psnztruhtk .gt_striped {
+#ayejbvmtjx .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#psnztruhtk .gt_table_body {
+#ayejbvmtjx .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -841,7 +841,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#psnztruhtk .gt_footnotes {
+#ayejbvmtjx .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -855,13 +855,13 @@
   border-right-color: #D3D3D3;
 }
 
-#psnztruhtk .gt_footnote {
+#ayejbvmtjx .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#psnztruhtk .gt_sourcenotes {
+#ayejbvmtjx .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -875,41 +875,41 @@
   border-right-color: #D3D3D3;
 }
 
-#psnztruhtk .gt_sourcenote {
+#ayejbvmtjx .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#psnztruhtk .gt_left {
+#ayejbvmtjx .gt_left {
   text-align: left;
 }
 
-#psnztruhtk .gt_center {
+#ayejbvmtjx .gt_center {
   text-align: center;
 }
 
-#psnztruhtk .gt_right {
+#ayejbvmtjx .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#psnztruhtk .gt_font_normal {
+#ayejbvmtjx .gt_font_normal {
   font-weight: normal;
 }
 
-#psnztruhtk .gt_font_bold {
+#ayejbvmtjx .gt_font_bold {
   font-weight: bold;
 }
 
-#psnztruhtk .gt_font_italic {
+#ayejbvmtjx .gt_font_italic {
   font-style: italic;
 }
 
-#psnztruhtk .gt_super {
+#ayejbvmtjx .gt_super {
   font-size: 65%;
 }
 
-#psnztruhtk .gt_footnote_marks {
+#ayejbvmtjx .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -3631,9 +3631,37 @@
 <p><img data-src="images/Screenshot%202022-09-05%20at%2012.29.44%20PM-01.png" width="437"></p>
 </div>
 </div>
+</section>
+<section id="anthro-plus-data-format" class="slide level2">
+<h2>Anthro-Plus Data Format</h2>
 
-<p><img src="images/logo_112.jpeg" class="slide-logo"></p>
-<div class="footer footer-default">
+<img data-src="images/AnthroPlus%20Picture%201.png" class="r-stretch"></section>
+<section id="anthro-plus---open-nutrition-survey" class="slide level2">
+<h2>Anthro-Plus - Open Nutrition Survey</h2>
+
+<img data-src="images/AnthroPlus%20Picture%202.png" class="r-stretch"></section>
+<section id="anthro-plus-import-file" class="slide level2">
+<h2>Anthro-Plus Import File</h2>
+
+<img data-src="images/AnthroPlus%20Picture%203.png" class="r-stretch"></section>
+<section id="anthro-plus-import-file-1" class="slide level2">
+<h2>Anthro-Plus Import File</h2>
+
+<img data-src="images/AnthroPlus%20Picture%204.png" class="r-stretch"></section>
+<section id="anthro-plus---field-mapping" class="slide level2">
+<h2>Anthro-Plus - Field mapping</h2>
+
+<img data-src="images/AnthroPlus%20Picture%205.png" class="r-stretch"></section>
+<section id="anthro-plus--z-scores-and-cluster-report" class="slide level2">
+<h2>Anthro-Plus- z-scores and cluster report</h2>
+
+<img data-src="images/AnthroPlus%20Picture%208.png" class="r-stretch"></section>
+<section id="queries" class="slide level2">
+<h2>Queries?</h2>
+<h3 id="thank-you">Thank You</h3>
+
+
+<img src="images/logo_112.jpeg" class="slide-logo r-stretch"><div class="footer footer-default">
 
 </div>
 </section>
