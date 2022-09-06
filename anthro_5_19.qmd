@@ -1,0 +1,233 @@
+---
+title: "Computing z-scores for 5-19 years"
+author: "Abhijit P Pakhare"
+format: 
+    revealjs: 
+      slide-number: true
+      preview-links: auto
+      logo: images/logo_112.jpeg
+editor: visual
+---
+
+## Anthropometric Indicators
+
+Three key indicators
+
+-   Weight-for-Age (up to 10 years)
+
+-   Height-for-Age (5- 19 years)
+
+-   BMI-for-Age (5-19 years)
+
+Other indicators such as MUAC, Waist and Hip Circumference
+
+## Available tools
+
+-   [*who2007*](https://cpeg-gcep.shinyapps.io/who2007_cpeg/): a *Shiny* app for children ages 5--19 years, based on the [WHO growth *reference*](http://www.who.int/growthref/en/)
+
+-   [WHO AnthroPlus software](https://www.who.int/tools/growth-reference-data-for-5to19-years/application-tools) - For 5-19 years children
+
+-   [R package- anthroplus](https://cran.microsoft.com/snapshot/2022-01-01/web/packages/anthroplus/index.html)
+
+## Practice Data set-3
+
+![](images/dataset_3_names.png)Mandatory columns
+
+-   id- Unique ID for each row
+
+-   sex- Gender 1- Boys, 2-Girls
+
+-   agemons- Age in months
+
+-   weight- Weight in kgs and height- Height in cm
+
+Other columns do not create problem
+
+## [WHO 2007 z-score calculator (CPEG App)](https://cpeg-gcep.shinyapps.io/who2007_cpeg/)
+
+![](images/who2007shiny.png)
+
+## Upload csv dataset with preset names
+
+![](images/who_2007_process.png)
+
+## z-score outputs
+
+-   zhfa- Height-for-Age (5- 19 years) (Stunting)
+
+-   zwfa- Weight-for-Age (up to 10 years) (Underweight)
+
+-   zbfa- BMI-for-Age (5-19 years) (Thinness)
+
+-   flags- fhfa, fwfa, fbfa - extreme and non-plausible values
+
+## BMI-for-Age: Interpretation **of cut-offs**
+
+-   Overweight: \>+1SD (equivalent to BMI 25 kg/m2 at 19 years)
+
+-   Obesity: \>+2SD (equivalent to BMI 30 kg/m2 at 19 years)
+
+-   Thinness: \<-2SD
+
+-   Severe thinness: \<-3SD
+
+## Weight-for-Age: Interpretation **of cut-offs**
+
+-   Underweight: \<-2SD
+
+-   Severe Underweight: \<-3SD
+
+## Height-for-Age: Interpretation **of cut-offs**
+
+-   Stunting: \<-2SD
+
+-   Severe Stunting: \<-3SD
+
+## Further analysis
+
+-   Export z-scores through download button (adds columns as shown earlier)
+
+-   Import in other program
+
+-   Categorize indicators as per cut-offs
+
+-   Do further analysis
+
+## Demonstration with R package anthroplus
+
+-   Install [R software](https://www.r-project.org/) and [RStudio IDE](https://www.rstudio.com/products/rstudio/download/)
+
+-   Open RStudio
+
+-   Open the R script for demonstration
+
+-   Install required packages
+
+## anthroplus demo on R
+
+### Import data
+
+```{r}
+#| echo: true
+# Load required packages (You should install them first and then you can load)
+library(tidyverse)
+library(anthroplus)
+
+# Import dataset
+df_anthro_plus_practice <- read.csv("https://raw.githubusercontent.com/drpakhare/Workshop-NDA/master/datasets_practice/3_dataset_practice_anthro_plus.csv")
+
+
+```
+
+### View data
+
+```{r}
+#| echo: true
+head(df_anthro_plus_practice)
+```
+
+## z-score calculation
+
+```{r}
+#| echo: true
+df_z_scores <- anthroplus_zscores(
+  sex = df_anthro_plus_practice$sex,
+  age_in_months = df_anthro_plus_practice$agemons,
+  oedema = "n",
+  height_in_cm = df_anthro_plus_practice$height,
+  weight_in_kg = df_anthro_plus_practice$weight
+)
+```
+
+-   df_z\_scores is a dataframe containing z-scores
+
+```{r}
+#| echo: true
+head(df_z_scores)
+
+```
+
+## Export z-scores
+
+```{r}
+#| echo: true
+write.csv(df_z_scores, file = "anthro_plus_z_scores.csv")
+```
+
+## Prevalence calculations
+
+```{r}
+#| echo: true
+df_results <- anthroplus_prevalence(
+  sex = df_anthro_plus_practice$sex,
+  age_in_months = df_anthro_plus_practice$agemons,
+  oedema = "n",
+  height_in_cm = df_anthro_plus_practice$height,
+  weight_in_kg = df_anthro_plus_practice$weight,
+  sw = NULL,
+  cluster = NULL,
+  strata = NULL
+)
+```
+
+-   Output or results are similar to Anthro Survey Analyser stored in a dataframe
+
+## Output details
+
+The result columns are coded with a *prefix*, *a prevalence indicator* and *a suffix*:
+
+**Prefix:**
+
+**HA - Height-for-Age, WA- Weight-for-Age and BMI- BMI-for-Age**
+
+**Prevalence indicator:**
+
+\_3 : Prevalence corresponding to \< -3 SD
+
+\_2 : Prevalence corresponding to \< -2 SD
+
+2 : Prevalence corresponding to \> +2 SD
+
+3 :Prevalence corresponding to \> +3 SD
+
+## Output details
+
+**Suffix:**
+
+\_pop : Weighted sample size
+
+\_unwpop : Unweighted sample size
+
+\_r : Mean/prevalence
+
+\_ll : lower 95% confidence interval limit
+
+\_ul : upper 95% confidence interval limit
+
+\_stdev : Standard Deviation
+
+\_se : Standard error
+
+## Prevalence Calculations- View results
+
+```{r}
+#| echo: false
+library(gt)
+gt(df_results)
+```
+
+## WHO Anthro-Plus Software
+
+::: columns
+::: {.column width="40%"}
+-   Works on Windows
+
+-   Requires dot net framework to be installed
+
+-   Available free and can be downloaded from [here](https://www.who.int/tools/growth-reference-data-for-5to19-years/application-tools)
+:::
+
+::: {.column width="60%"}
+![](images/Screenshot%202022-09-05%20at%2012.29.44%20PM-01.png){width="437"}
+:::
+:::

@@ -1,0 +1,16 @@
+---
+title: "List of Shortlisted Participants"
+editor: visual
+---
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+library(tidyverse)
+library(rio)
+library(here)
+library(gt)
+participant_list <- import(here("workshop_kit", "Participant_List.xlsx"))
+gt(participant_list)
+```

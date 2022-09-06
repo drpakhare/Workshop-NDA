@@ -3,8 +3,24 @@ title: "Workshop Kit"
 editor: visual
 ---
 
-Presentation slides
+# Presentation slides
+
+1.  Scientific basis of anthropometric measurements & indicators to monitor physical growth
+
+2.  Introduction to Anthro Survey Analyser
+
+3.  Preparing and importing anthropometric data
+
+4.  Computing Anthropometric Indicators for 0-5 year children and understanding results
+
+5.  [Computing z-scores for 5-19 years](anthro_5_19.qmd)
+
+6.  Anthropometric Data Quality Assessment
+
+7.  Generating summary report, exporting z-scores data
+
+# Software Manuals
 
 [Anthro Survey Analyser - Quick Guide](https://apps.who.int/nutgrowthdb/about/06062019_Anthro_QuickGuide.pdf?ua=1)
 
-[Data Quality Assessment Guidlines](https://github.com/drpakhare/Workshop-NDA/blob/master/workshop_kit/Data%20Quality%20Assessment%20Guidance.docx)
+[Data Quality Assessment Guidelines](https://github.com/drpakhare/Workshop-NDA/blob/master/workshop_kit/Data%20Quality%20Assessment%20Guidance.docx)

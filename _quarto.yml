@@ -11,6 +11,8 @@ website:
         text: About
       - href: Schedule.qmd
         text: Schedule
+      - href: participants.qmd
+        text: Participants
       - href: resources.qmd
         text: Resources
       - href: datasets.qmd

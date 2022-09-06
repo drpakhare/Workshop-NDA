@@ -1,0 +1,3991 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-html/tabby.min.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.0.36">
+
+  <meta name="author" content="Abhijit P Pakhare">
+  <title>ADA Workshop - Computing z-scores for 5-19 years</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto.css" id="theme">
+  <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+
+  .callout {
+    margin-top: 1em;
+    margin-bottom: 1em;  
+    border-radius: .25rem;
+  }
+
+  .callout.callout-style-simple { 
+    padding: 0em 0.5em;
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+    display: flex;
+  }
+
+  .callout.callout-style-default {
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+  }
+
+  .callout .callout-body-container {
+    flex-grow: 1;
+  }
+
+  .callout.callout-style-simple .callout-body {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-style-default .callout-body {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-captioned.callout-style-simple .callout-body {
+    margin-top: 0.2em;
+  }
+
+  .callout:not(.callout-captioned) .callout-body {
+      display: flex;
+  }
+
+  .callout:not(.no-icon).callout-captioned.callout-style-simple .callout-content {
+    padding-left: 1.6em;
+  }
+
+  .callout.callout-captioned .callout-header {
+    padding-top: 0.2em;
+    margin-bottom: -0.2em;
+  }
+
+  .callout.callout-captioned .callout-caption  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+    
+  .callout.callout-captioned.callout-style-simple .callout-content  p {
+    margin-top: 0;
+  }
+
+  .callout.callout-captioned.callout-style-default .callout-content  p {
+    margin-top: 0.7em;
+  }
+
+  .callout.callout-style-simple div.callout-caption {
+    border-bottom: none;
+    font-size: .9rem;
+    font-weight: 600;
+    opacity: 75%;
+  }
+
+  .callout.callout-style-default  div.callout-caption {
+    border-bottom: none;
+    font-weight: 600;
+    opacity: 85%;
+    font-size: 0.9rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-default div.callout-content {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-simple .callout-icon::before {
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
+
+  .callout.callout-style-default .callout-icon::before {
+    height: 0.9rem;
+    width: 0.9rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 0.9rem 0.9rem;
+  }
+
+  .callout-caption {
+    display: flex
+  }
+    
+  .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  .callout.no-icon::before {
+    display: none !important;
+  }
+
+  .callout.callout-captioned .callout-body > .callout-content > :last-child {
+    margin-bottom: 0.5rem;
+  }
+
+  .callout.callout-captioned .callout-icon::before {
+    margin-top: .5rem;
+    padding-right: .5rem;
+  }
+
+  .callout:not(.callout-captioned) .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  /* Callout Types */
+
+  div.callout-note {
+    border-left-color: #4582ec !important;
+  }
+
+  div.callout-note .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
+  }
+
+  div.callout-note.callout-style-default .callout-caption {
+    background-color: #dae6fb
+  }
+
+  div.callout-important {
+    border-left-color: #d9534f !important;
+  }
+
+  div.callout-important .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-important.callout-style-default .callout-caption {
+    background-color: #f7dddc
+  }
+
+  div.callout-warning {
+    border-left-color: #f0ad4e !important;
+  }
+
+  div.callout-warning .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-warning.callout-style-default .callout-caption {
+    background-color: #fcefdc
+  }
+
+  div.callout-tip {
+    border-left-color: #02b875 !important;
+  }
+
+  div.callout-tip .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-tip.callout-style-default .callout-caption {
+    background-color: #ccf1e3
+  }
+
+  div.callout-caution {
+    border-left-color: #fd7e14 !important;
+  }
+
+  div.callout-caution .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
+  }
+
+  div.callout-caution.callout-style-default .callout-caption {
+    background-color: #ffe5d0
+  }
+
+  </style>
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="center">
+  <h1 class="title">Computing z-scores for 5-19 years</h1>
+  <p class="author">Abhijit P Pakhare</p>
+</section>
+
+<section id="anthropometric-indicators" class="slide level2">
+<h2>Anthropometric Indicators</h2>
+<p>Three key indicators</p>
+<ul>
+<li><p>Weight-for-Age (up to 10 years)</p></li>
+<li><p>Height-for-Age (5- 19 years)</p></li>
+<li><p>BMI-for-Age (5-19 years)</p></li>
+</ul>
+<p>Other indicators such as MUAC, Waist and Hip Circumference</p>
+</section>
+<section id="available-tools" class="slide level2">
+<h2>Available tools</h2>
+<ul>
+<li><p><a href="https://cpeg-gcep.shinyapps.io/who2007_cpeg/"><em>who2007</em></a>: a&nbsp;<em>Shiny</em>&nbsp;app for children ages 5–19 years, based on the&nbsp;<a href="http://www.who.int/growthref/en/">WHO growth&nbsp;<em>reference</em></a></p></li>
+<li><p><a href="https://www.who.int/tools/growth-reference-data-for-5to19-years/application-tools">WHO AnthroPlus software</a> - For 5-19 years children</p></li>
+<li><p><a href="https://cran.microsoft.com/snapshot/2022-01-01/web/packages/anthroplus/index.html">R package- anthroplus</a></p></li>
+</ul>
+</section>
+<section id="practice-data-set-3" class="slide level2">
+<h2>Practice Data set-3</h2>
+<p><img data-src="images/dataset_3_names.png">Mandatory columns</p>
+<ul>
+<li><p>id- Unique ID for each row</p></li>
+<li><p>sex- Gender 1- Boys, 2-Girls</p></li>
+<li><p>agemons- Age in months</p></li>
+<li><p>weight- Weight in kgs and height- Height in cm</p></li>
+</ul>
+<p>Other columns do not create problem</p>
+</section>
+<section id="who-2007-z-score-calculator-cpeg-app" class="slide level2">
+<h2><a href="https://cpeg-gcep.shinyapps.io/who2007_cpeg/">WHO 2007 z-score calculator (CPEG App)</a></h2>
+
+<img data-src="images/who2007shiny.png" class="r-stretch"></section>
+<section id="upload-csv-dataset-with-preset-names" class="slide level2">
+<h2>Upload csv dataset with preset names</h2>
+
+<img data-src="images/who_2007_process.png" class="r-stretch"></section>
+<section id="z-score-outputs" class="slide level2">
+<h2>z-score outputs</h2>
+<ul>
+<li><p>zhfa- Height-for-Age (5- 19 years) (Stunting)</p></li>
+<li><p>zwfa- Weight-for-Age (up to 10 years) (Underweight)</p></li>
+<li><p>zbfa- BMI-for-Age (5-19 years) (Thinness)</p></li>
+<li><p>flags- fhfa, fwfa, fbfa - extreme and non-plausible values</p></li>
+</ul>
+</section>
+<section id="bmi-for-age-interpretation-of-cut-offs" class="slide level2">
+<h2>BMI-for-Age: Interpretation <strong>of cut-offs</strong></h2>
+<ul>
+<li><p>Overweight: &gt;+1SD (equivalent to BMI 25 kg/m2&nbsp;at 19 years)</p></li>
+<li><p>Obesity: &gt;+2SD (equivalent to BMI 30 kg/m2&nbsp;at 19 years)</p></li>
+<li><p>Thinness: &lt;-2SD</p></li>
+<li><p>Severe thinness: &lt;-3SD</p></li>
+</ul>
+</section>
+<section id="weight-for-age-interpretation-of-cut-offs" class="slide level2">
+<h2>Weight-for-Age: Interpretation <strong>of cut-offs</strong></h2>
+<ul>
+<li><p>Underweight: &lt;-2SD</p></li>
+<li><p>Severe Underweight: &lt;-3SD</p></li>
+</ul>
+</section>
+<section id="height-for-age-interpretation-of-cut-offs" class="slide level2">
+<h2>Height-for-Age: Interpretation <strong>of cut-offs</strong></h2>
+<ul>
+<li><p>Stunting: &lt;-2SD</p></li>
+<li><p>Severe Stunting: &lt;-3SD</p></li>
+</ul>
+</section>
+<section id="further-analysis" class="slide level2">
+<h2>Further analysis</h2>
+<ul>
+<li><p>Export z-scores through download button (adds columns as shown earlier)</p></li>
+<li><p>Import in other program</p></li>
+<li><p>Categorize indicators as per cut-offs</p></li>
+<li><p>Do further analysis</p></li>
+</ul>
+</section>
+<section id="demonstration-with-r-package-anthroplus" class="slide level2">
+<h2>Demonstration with R package anthroplus</h2>
+<ul>
+<li><p>Install <a href="https://www.r-project.org/">R software</a> and <a href="https://www.rstudio.com/products/rstudio/download/">RStudio IDE</a></p></li>
+<li><p>Open RStudio</p></li>
+<li><p>Open the R script for demonstration</p></li>
+<li><p>Install required packages</p></li>
+</ul>
+</section>
+<section id="anthroplus-demo-on-r" class="slide level2">
+<h2>anthroplus demo on R</h2>
+<h3 id="import-data">Import data</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Load required packages (You should install them first and then you can load)</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="fu">library</span>(anthroplus)</span>
+<span id="cb1-4"><a href="#cb1-4"></a></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="co"># Import dataset</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a>df_anthro_plus_practice <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://raw.githubusercontent.com/drpakhare/Workshop-NDA/master/datasets_practice/3_dataset_practice_anthro_plus.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<h3 id="view-data">View data</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">head</span>(df_anthro_plus_practice)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  id District Cluster sex Age agemons weight height  X
+1  1        2      42   1  19     228   66.0  173.4 NA
+2  2        2      68   1  17     204   65.0  164.8 NA
+3  3        2      54   1  19     228   63.0  164.0 NA
+4  4        3      90   1  17     204   63.0  168.8 NA
+5  5        3      84   1  18     216   61.5  164.0 NA
+6  6        2      64   1  18     216   61.0  163.1 NA</code></pre>
+</div>
+</div>
+</section>
+<section id="z-score-calculation" class="slide level2">
+<h2>z-score calculation</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>df_z_scores <span class="ot">&lt;-</span> <span class="fu">anthroplus_zscores</span>(</span>
+<span id="cb4-2"><a href="#cb4-2"></a>  <span class="at">sex =</span> df_anthro_plus_practice<span class="sc">$</span>sex,</span>
+<span id="cb4-3"><a href="#cb4-3"></a>  <span class="at">age_in_months =</span> df_anthro_plus_practice<span class="sc">$</span>agemons,</span>
+<span id="cb4-4"><a href="#cb4-4"></a>  <span class="at">oedema =</span> <span class="st">"n"</span>,</span>
+<span id="cb4-5"><a href="#cb4-5"></a>  <span class="at">height_in_cm =</span> df_anthro_plus_practice<span class="sc">$</span>height,</span>
+<span id="cb4-6"><a href="#cb4-6"></a>  <span class="at">weight_in_kg =</span> df_anthro_plus_practice<span class="sc">$</span>weight</span>
+<span id="cb4-7"><a href="#cb4-7"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>df_z_scores is a dataframe containing z-scores</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">head</span>(df_z_scores)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  age_in_months csex coedema     cbmi  zhfa zwfa  zbfa fhfa fwfa fbfa
+1           228    1       n 21.95057 -0.43   NA -0.08    0   NA    0
+2           204    1       n 23.93310 -1.36   NA  0.91    0   NA    0
+3           228    1       n 23.42356 -1.72   NA  0.41    0   NA    0
+4           204    1       n 22.11035 -0.83   NA  0.34    0   NA    0
+5           216    1       n 22.86585 -1.63   NA  0.39    0   NA    0
+6           216    1       n 22.93094 -1.75   NA  0.42    0   NA    0</code></pre>
+</div>
+</div>
+</section>
+<section id="export-z-scores" class="slide level2">
+<h2>Export z-scores</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">write.csv</span>(df_z_scores, <span class="at">file =</span> <span class="st">"anthro_plus_z_scores.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="prevalence-calculations" class="slide level2">
+<h2>Prevalence calculations</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>df_results <span class="ot">&lt;-</span> <span class="fu">anthroplus_prevalence</span>(</span>
+<span id="cb8-2"><a href="#cb8-2"></a>  <span class="at">sex =</span> df_anthro_plus_practice<span class="sc">$</span>sex,</span>
+<span id="cb8-3"><a href="#cb8-3"></a>  <span class="at">age_in_months =</span> df_anthro_plus_practice<span class="sc">$</span>agemons,</span>
+<span id="cb8-4"><a href="#cb8-4"></a>  <span class="at">oedema =</span> <span class="st">"n"</span>,</span>
+<span id="cb8-5"><a href="#cb8-5"></a>  <span class="at">height_in_cm =</span> df_anthro_plus_practice<span class="sc">$</span>height,</span>
+<span id="cb8-6"><a href="#cb8-6"></a>  <span class="at">weight_in_kg =</span> df_anthro_plus_practice<span class="sc">$</span>weight,</span>
+<span id="cb8-7"><a href="#cb8-7"></a>  <span class="at">sw =</span> <span class="cn">NULL</span>,</span>
+<span id="cb8-8"><a href="#cb8-8"></a>  <span class="at">cluster =</span> <span class="cn">NULL</span>,</span>
+<span id="cb8-9"><a href="#cb8-9"></a>  <span class="at">strata =</span> <span class="cn">NULL</span></span>
+<span id="cb8-10"><a href="#cb8-10"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Output or results are similar to Anthro Survey Analyser stored in a dataframe</li>
+</ul>
+</section>
+<section id="output-details" class="slide level2">
+<h2>Output details</h2>
+<p>The result columns are coded with a <em>prefix</em>, <em>a prevalence indicator</em> and <em>a suffix</em>:</p>
+<p><strong>Prefix:</strong></p>
+<p><strong>HA - Height-for-Age, WA- Weight-for-Age and BMI- BMI-for-Age</strong></p>
+<p><strong>Prevalence indicator:</strong></p>
+<p>_3 : Prevalence corresponding to &lt; -3 SD</p>
+<p>_2 : Prevalence corresponding to &lt; -2 SD</p>
+<p>2 : Prevalence corresponding to &gt; +2 SD</p>
+<p>3 :Prevalence corresponding to &gt; +3 SD</p>
+</section>
+<section id="output-details-1" class="slide level2">
+<h2>Output details</h2>
+<p><strong>Suffix:</strong></p>
+<p>_pop : Weighted sample size</p>
+<p>_unwpop : Unweighted sample size</p>
+<p>_r : Mean/prevalence</p>
+<p>_ll : lower 95% confidence interval limit</p>
+<p>_ul : upper 95% confidence interval limit</p>
+<p>_stdev : Standard Deviation</p>
+<p>_se : Standard error</p>
+</section>
+<section id="prevalence-calculations--view-results" class="slide level2">
+<h2>Prevalence Calculations- View results</h2>
+<div class="cell">
+<div class="cell-output-display">
+
+<div id="psnztruhtk" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#psnztruhtk .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#psnztruhtk .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#psnztruhtk .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#psnztruhtk .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#psnztruhtk .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#psnztruhtk .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#psnztruhtk .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#psnztruhtk .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#psnztruhtk .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#psnztruhtk .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#psnztruhtk .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#psnztruhtk .gt_group_heading {
+  padding: 8px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#psnztruhtk .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#psnztruhtk .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#psnztruhtk .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#psnztruhtk .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#psnztruhtk .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 12px;
+}
+
+#psnztruhtk .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#psnztruhtk .gt_first_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+}
+
+#psnztruhtk .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#psnztruhtk .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#psnztruhtk .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#psnztruhtk .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#psnztruhtk .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#psnztruhtk .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding: 4px;
+}
+
+#psnztruhtk .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#psnztruhtk .gt_sourcenote {
+  font-size: 90%;
+  padding: 4px;
+}
+
+#psnztruhtk .gt_left {
+  text-align: left;
+}
+
+#psnztruhtk .gt_center {
+  text-align: center;
+}
+
+#psnztruhtk .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#psnztruhtk .gt_font_normal {
+  font-weight: normal;
+}
+
+#psnztruhtk .gt_font_bold {
+  font-weight: bold;
+}
+
+#psnztruhtk .gt_font_italic {
+  font-style: italic;
+}
+
+#psnztruhtk .gt_super {
+  font-size: 65%;
+}
+
+#psnztruhtk .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 65%;
+}
+</style>
+<table class="gt_table">
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">Group</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">Years</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">Months</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">HAZ_pop</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">HAZ_unwpop</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">HA_3_r</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">HA_3_se</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">HA_3_ll</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">HA_3_ul</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">HA_2_r</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">HA_2_se</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">HA_2_ll</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">HA_2_ul</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">HA_1_r</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">HA_1_se</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">HA_1_ll</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">HA_1_ul</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">HA1_r</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">HA1_se</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">HA1_ll</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">HA1_ul</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">HA2_r</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">HA2_se</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">HA2_ll</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">HA2_ul</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">HA3_r</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">HA3_se</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">HA3_ll</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">HA3_ul</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">HA_r</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">HA_se</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">HA_ll</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">HA_ul</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">HA_stdev</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">WAZ_pop</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">WAZ_unwpop</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">WA_3_r</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">WA_3_se</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">WA_3_ll</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">WA_3_ul</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">WA_2_r</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">WA_2_se</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">WA_2_ll</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">WA_2_ul</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">WA_1_r</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">WA_1_se</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">WA_1_ll</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">WA_1_ul</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">WA1_r</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">WA1_se</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">WA1_ll</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">WA1_ul</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">WA2_r</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">WA2_se</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">WA2_ll</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">WA2_ul</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">WA3_r</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">WA3_se</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">WA3_ll</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">WA3_ul</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">WA_r</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">WA_se</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">WA_ll</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">WA_ul</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">WA_stdev</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">BMIZ_pop</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">BMIZ_unwpop</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">BMI_3_r</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">BMI_3_se</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">BMI_3_ll</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">BMI_3_ul</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">BMI_2_r</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">BMI_2_se</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">BMI_2_ll</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">BMI_2_ul</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">BMI_1_r</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">BMI_1_se</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">BMI_1_ll</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">BMI_1_ul</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">BMI1_r</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">BMI1_se</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">BMI1_ll</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">BMI1_ul</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">BMI2_r</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">BMI2_se</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">BMI2_ll</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">BMI2_ul</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">BMI3_r</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">BMI3_se</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">BMI3_ll</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">BMI3_ul</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">BMI_r</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">BMI_se</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">BMI_ll</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">BMI_ul</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">BMI_stdev</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td class="gt_row gt_left">All</td>
+<td class="gt_row gt_left">Total (5-19)</td>
+<td class="gt_row gt_left">(61-228)</td>
+<td class="gt_row gt_right">2025</td>
+<td class="gt_row gt_right">2025</td>
+<td class="gt_row gt_right">6.913580</td>
+<td class="gt_row gt_right">0.5638834</td>
+<td class="gt_row gt_right">5.8863107</td>
+<td class="gt_row gt_right">8.104689</td>
+<td class="gt_row gt_right">29.18519</td>
+<td class="gt_row gt_right">1.010504</td>
+<td class="gt_row gt_right">27.24369</td>
+<td class="gt_row gt_right">31.20570</td>
+<td class="gt_row gt_right">68.69136</td>
+<td class="gt_row gt_right">1.030808</td>
+<td class="gt_row gt_right">66.63519</td>
+<td class="gt_row gt_right">70.67657</td>
+<td class="gt_row gt_right">1.3333333</td>
+<td class="gt_row gt_right">0.2549466</td>
+<td class="gt_row gt_right">9.156241e-01</td>
+<td class="gt_row gt_right">1.937875e+00</td>
+<td class="gt_row gt_right">0.3456790</td>
+<td class="gt_row gt_right">0.1304606</td>
+<td class="gt_row gt_right">1.647809e-01</td>
+<td class="gt_row gt_right">7.237291e-01</td>
+<td class="gt_row gt_right">0.04938272</td>
+<td class="gt_row gt_right">0.04938270</td>
+<td class="gt_row gt_right">6.944298e-03</td>
+<td class="gt_row gt_right">3.502649e-01</td>
+<td class="gt_row gt_right">-1.4760247</td>
+<td class="gt_row gt_right">0.02367850</td>
+<td class="gt_row gt_right">-1.522461</td>
+<td class="gt_row gt_right">-1.4295879</td>
+<td class="gt_row gt_right">1.0655324</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">2011</td>
+<td class="gt_row gt_right">2011</td>
+<td class="gt_row gt_right">13.873695</td>
+<td class="gt_row gt_right">0.7710190</td>
+<td class="gt_row gt_right">12.429568</td>
+<td class="gt_row gt_right">15.455993</td>
+<td class="gt_row gt_right">35.90254</td>
+<td class="gt_row gt_right">1.070001</td>
+<td class="gt_row gt_right">33.832168</td>
+<td class="gt_row gt_right">38.02679</td>
+<td class="gt_row gt_right">69.31875</td>
+<td class="gt_row gt_right">1.028639</td>
+<td class="gt_row gt_right">67.26536</td>
+<td class="gt_row gt_right">71.29829</td>
+<td class="gt_row gt_right">0.5967181</td>
+<td class="gt_row gt_right">0.1717853</td>
+<td class="gt_row gt_right">3.390223e-01</td>
+<td class="gt_row gt_right">1.048232e+00</td>
+<td class="gt_row gt_right">0.1491795</td>
+<td class="gt_row gt_right">0.0860858</td>
+<td class="gt_row gt_right">4.807562e-02</td>
+<td class="gt_row gt_right">4.619241e-01</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">2.889450e-10</td>
+<td class="gt_row gt_right">2.911997e-10</td>
+<td class="gt_row gt_right">-1.664674</td>
+<td class="gt_row gt_right">0.02646049</td>
+<td class="gt_row gt_right">-1.716567</td>
+<td class="gt_row gt_right">-1.612782</td>
+<td class="gt_row gt_right">1.1865990</td></tr>
+    <tr><td class="gt_row gt_left">Sex: Female</td>
+<td class="gt_row gt_left">Total (5-19)</td>
+<td class="gt_row gt_left">(61-228)</td>
+<td class="gt_row gt_right">1149</td>
+<td class="gt_row gt_right">1149</td>
+<td class="gt_row gt_right">5.831158</td>
+<td class="gt_row gt_right">0.6914776</td>
+<td class="gt_row gt_right">4.6140196</td>
+<td class="gt_row gt_right">7.344644</td>
+<td class="gt_row gt_right">28.11140</td>
+<td class="gt_row gt_right">1.326534</td>
+<td class="gt_row gt_right">25.58458</td>
+<td class="gt_row gt_right">30.78455</td>
+<td class="gt_row gt_right">67.27589</td>
+<td class="gt_row gt_right">1.384557</td>
+<td class="gt_row gt_right">64.50506</td>
+<td class="gt_row gt_right">69.93125</td>
+<td class="gt_row gt_right">1.3925152</td>
+<td class="gt_row gt_right">0.3457817</td>
+<td class="gt_row gt_right">8.544460e-01</td>
+<td class="gt_row gt_right">2.261693e+00</td>
+<td class="gt_row gt_right">0.4351610</td>
+<td class="gt_row gt_right">0.1942339</td>
+<td class="gt_row gt_right">1.811067e-01</td>
+<td class="gt_row gt_right">1.041880e+00</td>
+<td class="gt_row gt_right">0.00000000</td>
+<td class="gt_row gt_right">0.00000000</td>
+<td class="gt_row gt_right">2.792300e-10</td>
+<td class="gt_row gt_right">3.013311e-10</td>
+<td class="gt_row gt_right">-1.4315057</td>
+<td class="gt_row gt_right">0.03073589</td>
+<td class="gt_row gt_right">-1.491783</td>
+<td class="gt_row gt_right">-1.3712284</td>
+<td class="gt_row gt_right">1.0420474</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">1147</td>
+<td class="gt_row gt_right">1147</td>
+<td class="gt_row gt_right">12.292938</td>
+<td class="gt_row gt_right">0.9697741</td>
+<td class="gt_row gt_right">10.514013</td>
+<td class="gt_row gt_right">14.324669</td>
+<td class="gt_row gt_right">32.86835</td>
+<td class="gt_row gt_right">1.387325</td>
+<td class="gt_row gt_right">30.207206</td>
+<td class="gt_row gt_right">35.64421</td>
+<td class="gt_row gt_right">66.34699</td>
+<td class="gt_row gt_right">1.395558</td>
+<td class="gt_row gt_right">63.55771</td>
+<td class="gt_row gt_right">69.02682</td>
+<td class="gt_row gt_right">0.6974717</td>
+<td class="gt_row gt_right">0.2457926</td>
+<td class="gt_row gt_right">3.489737e-01</td>
+<td class="gt_row gt_right">1.389141e+00</td>
+<td class="gt_row gt_right">0.1743679</td>
+<td class="gt_row gt_right">0.1232196</td>
+<td class="gt_row gt_right">4.356228e-02</td>
+<td class="gt_row gt_right">6.952153e-01</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">2.792086e-10</td>
+<td class="gt_row gt_right">3.013542e-10</td>
+<td class="gt_row gt_right">-1.568282</td>
+<td class="gt_row gt_right">0.03447379</td>
+<td class="gt_row gt_right">-1.635890</td>
+<td class="gt_row gt_right">-1.500675</td>
+<td class="gt_row gt_right">1.1677565</td></tr>
+    <tr><td class="gt_row gt_left">Sex: Male</td>
+<td class="gt_row gt_left">Total (5-19)</td>
+<td class="gt_row gt_left">(61-228)</td>
+<td class="gt_row gt_right">876</td>
+<td class="gt_row gt_right">876</td>
+<td class="gt_row gt_right">8.333333</td>
+<td class="gt_row gt_right">0.9340502</td>
+<td class="gt_row gt_right">6.6751520</td>
+<td class="gt_row gt_right">10.357709</td>
+<td class="gt_row gt_right">30.59361</td>
+<td class="gt_row gt_right">1.557292</td>
+<td class="gt_row gt_right">27.62745</td>
+<td class="gt_row gt_right">33.72980</td>
+<td class="gt_row gt_right">70.54795</td>
+<td class="gt_row gt_right">1.540477</td>
+<td class="gt_row gt_right">67.43947</td>
+<td class="gt_row gt_right">73.47638</td>
+<td class="gt_row gt_right">1.2557078</td>
+<td class="gt_row gt_right">0.3763183</td>
+<td class="gt_row gt_right">6.963857e-01</td>
+<td class="gt_row gt_right">2.254068e+00</td>
+<td class="gt_row gt_right">0.2283105</td>
+<td class="gt_row gt_right">0.1612953</td>
+<td class="gt_row gt_right">5.704048e-02</td>
+<td class="gt_row gt_right">9.091587e-01</td>
+<td class="gt_row gt_right">0.11415525</td>
+<td class="gt_row gt_right">0.11411823</td>
+<td class="gt_row gt_right">1.605148e-02</td>
+<td class="gt_row gt_right">8.070122e-01</td>
+<td class="gt_row gt_right">-1.5344178</td>
+<td class="gt_row gt_right">0.03693144</td>
+<td class="gt_row gt_right">-1.606845</td>
+<td class="gt_row gt_right">-1.4619902</td>
+<td class="gt_row gt_right">1.0934254</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">864</td>
+<td class="gt_row gt_right">864</td>
+<td class="gt_row gt_right">15.972222</td>
+<td class="gt_row gt_right">1.2466496</td>
+<td class="gt_row gt_right">13.676051</td>
+<td class="gt_row gt_right">18.570976</td>
+<td class="gt_row gt_right">39.93056</td>
+<td class="gt_row gt_right">1.666594</td>
+<td class="gt_row gt_right">36.711290</td>
+<td class="gt_row gt_right">43.23925</td>
+<td class="gt_row gt_right">73.26389</td>
+<td class="gt_row gt_right">1.506067</td>
+<td class="gt_row gt_right">70.20891</td>
+<td class="gt_row gt_right">76.11218</td>
+<td class="gt_row gt_right">0.4629630</td>
+<td class="gt_row gt_right">0.2310020</td>
+<td class="gt_row gt_right">1.737227e-01</td>
+<td class="gt_row gt_right">1.227851e+00</td>
+<td class="gt_row gt_right">0.1157407</td>
+<td class="gt_row gt_right">0.1157023</td>
+<td class="gt_row gt_right">1.627438e-02</td>
+<td class="gt_row gt_right">8.181546e-01</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">2.757716e-10</td>
+<td class="gt_row gt_right">3.051101e-10</td>
+<td class="gt_row gt_right">-1.792639</td>
+<td class="gt_row gt_right">0.04080875</td>
+<td class="gt_row gt_right">-1.872670</td>
+<td class="gt_row gt_right">-1.712607</td>
+<td class="gt_row gt_right">1.1999164</td></tr>
+    <tr><td class="gt_row gt_left">Age Group 1: 61-71 mo</td>
+<td class="gt_row gt_left">5</td>
+<td class="gt_row gt_left">(61-71)</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td></tr>
+    <tr><td class="gt_row gt_left">Age Group 1: 72-83 mo</td>
+<td class="gt_row gt_left">6</td>
+<td class="gt_row gt_left">(72-83)</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td></tr>
+    <tr><td class="gt_row gt_left">Age Group 1: 84-95 mo</td>
+<td class="gt_row gt_left">7</td>
+<td class="gt_row gt_left">(84-95)</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td></tr>
+    <tr><td class="gt_row gt_left">Age Group 1: 96-107 mo</td>
+<td class="gt_row gt_left">8</td>
+<td class="gt_row gt_left">(96-107)</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td></tr>
+    <tr><td class="gt_row gt_left">Age Group 1: 108-119 mo</td>
+<td class="gt_row gt_left">9</td>
+<td class="gt_row gt_left">(108-119)</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td></tr>
+    <tr><td class="gt_row gt_left">Age Group 1: 120-131 mo</td>
+<td class="gt_row gt_left">10</td>
+<td class="gt_row gt_left">(120-131)</td>
+<td class="gt_row gt_right">305</td>
+<td class="gt_row gt_right">305</td>
+<td class="gt_row gt_right">1.311475</td>
+<td class="gt_row gt_right">0.6515843</td>
+<td class="gt_row gt_right">0.4926827</td>
+<td class="gt_row gt_right">3.443930</td>
+<td class="gt_row gt_right">14.09836</td>
+<td class="gt_row gt_right">1.993160</td>
+<td class="gt_row gt_right">10.62241</td>
+<td class="gt_row gt_right">18.47661</td>
+<td class="gt_row gt_right">51.80328</td>
+<td class="gt_row gt_right">2.861835</td>
+<td class="gt_row gt_right">46.19169</td>
+<td class="gt_row gt_right">57.36974</td>
+<td class="gt_row gt_right">4.5901639</td>
+<td class="gt_row gt_right">1.1985824</td>
+<td class="gt_row gt_right">2.735835e+00</td>
+<td class="gt_row gt_right">7.603095e+00</td>
+<td class="gt_row gt_right">1.3114754</td>
+<td class="gt_row gt_right">0.6515843</td>
+<td class="gt_row gt_right">4.926827e-01</td>
+<td class="gt_row gt_right">3.443930e+00</td>
+<td class="gt_row gt_right">0.32786885</td>
+<td class="gt_row gt_right">0.32741169</td>
+<td class="gt_row gt_right">4.608989e-02</td>
+<td class="gt_row gt_right">2.292838e+00</td>
+<td class="gt_row gt_right">-0.9690164</td>
+<td class="gt_row gt_right">0.05976023</td>
+<td class="gt_row gt_right">-1.086214</td>
+<td class="gt_row gt_right">-0.8518185</td>
+<td class="gt_row gt_right">1.0451248</td>
+<td class="gt_row gt_right">305</td>
+<td class="gt_row gt_right">305</td>
+<td class="gt_row gt_right">10.819672</td>
+<td class="gt_row gt_right">1.779094</td>
+<td class="gt_row gt_right">7.792425</td>
+<td class="gt_row gt_right">14.83377</td>
+<td class="gt_row gt_right">50.81967</td>
+<td class="gt_row gt_right">2.863313</td>
+<td class="gt_row gt_right">45.21756</td>
+<td class="gt_row gt_right">56.40128</td>
+<td class="gt_row gt_right">83.27869</td>
+<td class="gt_row gt_right">2.137270</td>
+<td class="gt_row gt_right">78.65932</td>
+<td class="gt_row gt_right">87.06261</td>
+<td class="gt_row gt_right">1.3114754</td>
+<td class="gt_row gt_right">0.6515843</td>
+<td class="gt_row gt_right">0.4926827</td>
+<td class="gt_row gt_right">3.443930</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">2.615422e-10</td>
+<td class="gt_row gt_right">3.217098e-10</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">2.615422e-10</td>
+<td class="gt_row gt_right">3.217098e-10</td>
+<td class="gt_row gt_right">-1.825377</td>
+<td class="gt_row gt_right">0.06147733</td>
+<td class="gt_row gt_right">-1.945942</td>
+<td class="gt_row gt_right">-1.704812</td>
+<td class="gt_row gt_right">1.075154</td>
+<td class="gt_row gt_right">303</td>
+<td class="gt_row gt_right">303</td>
+<td class="gt_row gt_right">19.801980</td>
+<td class="gt_row gt_right">2.2899288</td>
+<td class="gt_row gt_right">15.689662</td>
+<td class="gt_row gt_right">24.676677</td>
+<td class="gt_row gt_right">45.54455</td>
+<td class="gt_row gt_right">2.861704</td>
+<td class="gt_row gt_right">40.011735</td>
+<td class="gt_row gt_right">51.18959</td>
+<td class="gt_row gt_right">72.60726</td>
+<td class="gt_row gt_right">2.562675</td>
+<td class="gt_row gt_right">67.30689</td>
+<td class="gt_row gt_right">77.33764</td>
+<td class="gt_row gt_right">0.6600660</td>
+<td class="gt_row gt_right">0.4653090</td>
+<td class="gt_row gt_right">1.649490e-01</td>
+<td class="gt_row gt_right">2.602601e+00</td>
+<td class="gt_row gt_right">0.0000000</td>
+<td class="gt_row gt_right">0.0000000</td>
+<td class="gt_row gt_right">2.614372e-10</td>
+<td class="gt_row gt_right">3.218390e-10</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">2.614372e-10</td>
+<td class="gt_row gt_right">3.218390e-10</td>
+<td class="gt_row gt_right">-1.894422</td>
+<td class="gt_row gt_right">0.07346567</td>
+<td class="gt_row gt_right">-2.038499</td>
+<td class="gt_row gt_right">-1.750346</td>
+<td class="gt_row gt_right">1.2805948</td></tr>
+    <tr><td class="gt_row gt_left">Age Group 1: 132-143 mo</td>
+<td class="gt_row gt_left">11</td>
+<td class="gt_row gt_left">(132-143)</td>
+<td class="gt_row gt_right">182</td>
+<td class="gt_row gt_right">182</td>
+<td class="gt_row gt_right">4.945055</td>
+<td class="gt_row gt_right">1.6074756</td>
+<td class="gt_row gt_right">2.5913582</td>
+<td class="gt_row gt_right">9.233926</td>
+<td class="gt_row gt_right">27.47253</td>
+<td class="gt_row gt_right">3.309574</td>
+<td class="gt_row gt_right">21.47505</td>
+<td class="gt_row gt_right">34.41096</td>
+<td class="gt_row gt_right">69.23077</td>
+<td class="gt_row gt_right">3.421995</td>
+<td class="gt_row gt_right">62.14921</td>
+<td class="gt_row gt_right">75.50952</td>
+<td class="gt_row gt_right">3.2967033</td>
+<td class="gt_row gt_right">1.3238294</td>
+<td class="gt_row gt_right">1.487497e+00</td>
+<td class="gt_row gt_right">7.146763e+00</td>
+<td class="gt_row gt_right">1.0989011</td>
+<td class="gt_row gt_right">0.7729499</td>
+<td class="gt_row gt_right">2.746798e-01</td>
+<td class="gt_row gt_right">4.289941e+00</td>
+<td class="gt_row gt_right">0.00000000</td>
+<td class="gt_row gt_right">0.00000000</td>
+<td class="gt_row gt_right">2.524969e-10</td>
+<td class="gt_row gt_right">3.332345e-10</td>
+<td class="gt_row gt_right">-1.3808791</td>
+<td class="gt_row gt_right">0.08318873</td>
+<td class="gt_row gt_right">-1.544023</td>
+<td class="gt_row gt_right">-1.2177347</td>
+<td class="gt_row gt_right">1.1250956</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">182</td>
+<td class="gt_row gt_right">182</td>
+<td class="gt_row gt_right">16.483516</td>
+<td class="gt_row gt_right">2.7509487</td>
+<td class="gt_row gt_right">11.768094</td>
+<td class="gt_row gt_right">22.604325</td>
+<td class="gt_row gt_right">39.56044</td>
+<td class="gt_row gt_right">3.625456</td>
+<td class="gt_row gt_right">32.713366</td>
+<td class="gt_row gt_right">46.84294</td>
+<td class="gt_row gt_right">71.97802</td>
+<td class="gt_row gt_right">3.329820</td>
+<td class="gt_row gt_right">65.01291</td>
+<td class="gt_row gt_right">78.02522</td>
+<td class="gt_row gt_right">1.6483516</td>
+<td class="gt_row gt_right">0.9440331</td>
+<td class="gt_row gt_right">5.320961e-01</td>
+<td class="gt_row gt_right">4.988888e+00</td>
+<td class="gt_row gt_right">0.5494505</td>
+<td class="gt_row gt_right">0.5480742</td>
+<td class="gt_row gt_right">7.721742e-02</td>
+<td class="gt_row gt_right">3.799862e+00</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">2.524969e-10</td>
+<td class="gt_row gt_right">3.332345e-10</td>
+<td class="gt_row gt_right">-1.719560</td>
+<td class="gt_row gt_right">0.09674142</td>
+<td class="gt_row gt_right">-1.909283</td>
+<td class="gt_row gt_right">-1.529837</td>
+<td class="gt_row gt_right">1.3083906</td></tr>
+    <tr><td class="gt_row gt_left">Age Group 1: 144-155 mo</td>
+<td class="gt_row gt_left">12</td>
+<td class="gt_row gt_left">(144-155)</td>
+<td class="gt_row gt_right">286</td>
+<td class="gt_row gt_right">286</td>
+<td class="gt_row gt_right">6.993007</td>
+<td class="gt_row gt_right">1.5083910</td>
+<td class="gt_row gt_right">4.5538614</td>
+<td class="gt_row gt_right">10.593607</td>
+<td class="gt_row gt_right">31.81818</td>
+<td class="gt_row gt_right">2.754838</td>
+<td class="gt_row gt_right">26.67500</td>
+<td class="gt_row gt_right">37.44658</td>
+<td class="gt_row gt_right">68.53147</td>
+<td class="gt_row gt_right">2.746676</td>
+<td class="gt_row gt_right">62.91403</td>
+<td class="gt_row gt_right">73.65434</td>
+<td class="gt_row gt_right">1.3986014</td>
+<td class="gt_row gt_right">0.6945646</td>
+<td class="gt_row gt_right">5.254751e-01</td>
+<td class="gt_row gt_right">3.668999e+00</td>
+<td class="gt_row gt_right">0.3496503</td>
+<td class="gt_row gt_right">0.3491247</td>
+<td class="gt_row gt_right">4.915049e-02</td>
+<td class="gt_row gt_right">2.442473e+00</td>
+<td class="gt_row gt_right">0.00000000</td>
+<td class="gt_row gt_right">0.00000000</td>
+<td class="gt_row gt_right">2.605055e-10</td>
+<td class="gt_row gt_right">3.229901e-10</td>
+<td class="gt_row gt_right">-1.4565734</td>
+<td class="gt_row gt_right">0.06312416</td>
+<td class="gt_row gt_right">-1.580368</td>
+<td class="gt_row gt_right">-1.3327784</td>
+<td class="gt_row gt_right">1.0691338</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">281</td>
+<td class="gt_row gt_right">281</td>
+<td class="gt_row gt_right">18.505338</td>
+<td class="gt_row gt_right">2.3172190</td>
+<td class="gt_row gt_right">14.383300</td>
+<td class="gt_row gt_right">23.484656</td>
+<td class="gt_row gt_right">43.77224</td>
+<td class="gt_row gt_right">2.960253</td>
+<td class="gt_row gt_right">38.076833</td>
+<td class="gt_row gt_right">49.63668</td>
+<td class="gt_row gt_right">77.22420</td>
+<td class="gt_row gt_right">2.502462</td>
+<td class="gt_row gt_right">71.95007</td>
+<td class="gt_row gt_right">81.75808</td>
+<td class="gt_row gt_right">0.3558719</td>
+<td class="gt_row gt_right">0.3553258</td>
+<td class="gt_row gt_right">5.002467e-02</td>
+<td class="gt_row gt_right">2.485153e+00</td>
+<td class="gt_row gt_right">0.0000000</td>
+<td class="gt_row gt_right">0.0000000</td>
+<td class="gt_row gt_right">2.602170e-10</td>
+<td class="gt_row gt_right">3.233481e-10</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">2.602170e-10</td>
+<td class="gt_row gt_right">3.233481e-10</td>
+<td class="gt_row gt_right">-1.901815</td>
+<td class="gt_row gt_right">0.07024751</td>
+<td class="gt_row gt_right">-2.039580</td>
+<td class="gt_row gt_right">-1.764050</td>
+<td class="gt_row gt_right">1.1793359</td></tr>
+    <tr><td class="gt_row gt_left">Age Group 1: 156-167 mo</td>
+<td class="gt_row gt_left">13</td>
+<td class="gt_row gt_left">(156-167)</td>
+<td class="gt_row gt_right">217</td>
+<td class="gt_row gt_right">217</td>
+<td class="gt_row gt_right">12.442396</td>
+<td class="gt_row gt_right">2.2411774</td>
+<td class="gt_row gt_right">8.6698164</td>
+<td class="gt_row gt_right">17.541282</td>
+<td class="gt_row gt_right">38.70968</td>
+<td class="gt_row gt_right">3.307372</td>
+<td class="gt_row gt_right">32.45542</td>
+<td class="gt_row gt_right">45.35978</td>
+<td class="gt_row gt_right">71.88940</td>
+<td class="gt_row gt_right">3.052423</td>
+<td class="gt_row gt_right">65.53771</td>
+<td class="gt_row gt_right">77.47281</td>
+<td class="gt_row gt_right">0.4608295</td>
+<td class="gt_row gt_right">0.4598799</td>
+<td class="gt_row gt_right">6.477010e-02</td>
+<td class="gt_row gt_right">3.201155e+00</td>
+<td class="gt_row gt_right">0.0000000</td>
+<td class="gt_row gt_right">0.0000000</td>
+<td class="gt_row gt_right">2.557727e-10</td>
+<td class="gt_row gt_right">3.289667e-10</td>
+<td class="gt_row gt_right">0.00000000</td>
+<td class="gt_row gt_right">0.00000000</td>
+<td class="gt_row gt_right">2.557727e-10</td>
+<td class="gt_row gt_right">3.289667e-10</td>
+<td class="gt_row gt_right">-1.6488018</td>
+<td class="gt_row gt_right">0.07584110</td>
+<td class="gt_row gt_right">-1.797537</td>
+<td class="gt_row gt_right">-1.5000672</td>
+<td class="gt_row gt_right">1.1195160</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">212</td>
+<td class="gt_row gt_right">212</td>
+<td class="gt_row gt_right">16.037736</td>
+<td class="gt_row gt_right">2.5208838</td>
+<td class="gt_row gt_right">11.685409</td>
+<td class="gt_row gt_right">21.614379</td>
+<td class="gt_row gt_right">40.09434</td>
+<td class="gt_row gt_right">3.366780</td>
+<td class="gt_row gt_right">33.705773</td>
+<td class="gt_row gt_right">46.83828</td>
+<td class="gt_row gt_right">75.47170</td>
+<td class="gt_row gt_right">2.955732</td>
+<td class="gt_row gt_right">69.22805</td>
+<td class="gt_row gt_right">80.79986</td>
+<td class="gt_row gt_right">1.8867925</td>
+<td class="gt_row gt_right">0.9346845</td>
+<td class="gt_row gt_right">7.093628e-01</td>
+<td class="gt_row gt_right">4.921694e+00</td>
+<td class="gt_row gt_right">0.4716981</td>
+<td class="gt_row gt_right">0.4707004</td>
+<td class="gt_row gt_right">6.629681e-02</td>
+<td class="gt_row gt_right">3.274868e+00</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">2.553507e-10</td>
+<td class="gt_row gt_right">3.295103e-10</td>
+<td class="gt_row gt_right">-1.781981</td>
+<td class="gt_row gt_right">0.08509616</td>
+<td class="gt_row gt_right">-1.948866</td>
+<td class="gt_row gt_right">-1.615096</td>
+<td class="gt_row gt_right">1.2415772</td></tr>
+    <tr><td class="gt_row gt_left">Age Group 1: 168-179 mo</td>
+<td class="gt_row gt_left">14</td>
+<td class="gt_row gt_left">(168-179)</td>
+<td class="gt_row gt_right">221</td>
+<td class="gt_row gt_right">221</td>
+<td class="gt_row gt_right">15.384615</td>
+<td class="gt_row gt_right">2.4276105</td>
+<td class="gt_row gt_right">11.2000314</td>
+<td class="gt_row gt_right">20.767020</td>
+<td class="gt_row gt_right">43.43891</td>
+<td class="gt_row gt_right">3.335104</td>
+<td class="gt_row gt_right">37.04765</td>
+<td class="gt_row gt_right">50.05605</td>
+<td class="gt_row gt_right">78.73303</td>
+<td class="gt_row gt_right">2.753229</td>
+<td class="gt_row gt_right">72.83840</td>
+<td class="gt_row gt_right">83.63581</td>
+<td class="gt_row gt_right">0.0000000</td>
+<td class="gt_row gt_right">0.0000000</td>
+<td class="gt_row gt_right">2.561007e-10</td>
+<td class="gt_row gt_right">3.285453e-10</td>
+<td class="gt_row gt_right">0.0000000</td>
+<td class="gt_row gt_right">0.0000000</td>
+<td class="gt_row gt_right">2.561007e-10</td>
+<td class="gt_row gt_right">3.285453e-10</td>
+<td class="gt_row gt_right">0.00000000</td>
+<td class="gt_row gt_right">0.00000000</td>
+<td class="gt_row gt_right">2.561007e-10</td>
+<td class="gt_row gt_right">3.285453e-10</td>
+<td class="gt_row gt_right">-1.8318552</td>
+<td class="gt_row gt_right">0.07164730</td>
+<td class="gt_row gt_right">-1.972365</td>
+<td class="gt_row gt_right">-1.6913451</td>
+<td class="gt_row gt_right">1.0672573</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">221</td>
+<td class="gt_row gt_right">221</td>
+<td class="gt_row gt_right">17.194570</td>
+<td class="gt_row gt_right">2.5388444</td>
+<td class="gt_row gt_right">12.768344</td>
+<td class="gt_row gt_right">22.754923</td>
+<td class="gt_row gt_right">43.43891</td>
+<td class="gt_row gt_right">3.335104</td>
+<td class="gt_row gt_right">37.047653</td>
+<td class="gt_row gt_right">50.05605</td>
+<td class="gt_row gt_right">72.85068</td>
+<td class="gt_row gt_right">2.992315</td>
+<td class="gt_row gt_right">66.60462</td>
+<td class="gt_row gt_right">78.30897</td>
+<td class="gt_row gt_right">0.0000000</td>
+<td class="gt_row gt_right">0.0000000</td>
+<td class="gt_row gt_right">2.561007e-10</td>
+<td class="gt_row gt_right">3.285453e-10</td>
+<td class="gt_row gt_right">0.0000000</td>
+<td class="gt_row gt_right">0.0000000</td>
+<td class="gt_row gt_right">2.561007e-10</td>
+<td class="gt_row gt_right">3.285453e-10</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">2.561007e-10</td>
+<td class="gt_row gt_right">3.285453e-10</td>
+<td class="gt_row gt_right">-1.785023</td>
+<td class="gt_row gt_right">0.08207322</td>
+<td class="gt_row gt_right">-1.945979</td>
+<td class="gt_row gt_right">-1.624066</td>
+<td class="gt_row gt_right">1.2225618</td></tr>
+    <tr><td class="gt_row gt_left">Age Group 1: 180-191 mo</td>
+<td class="gt_row gt_left">15</td>
+<td class="gt_row gt_left">(180-191)</td>
+<td class="gt_row gt_right">223</td>
+<td class="gt_row gt_right">223</td>
+<td class="gt_row gt_right">8.071749</td>
+<td class="gt_row gt_right">1.8245806</td>
+<td class="gt_row gt_right">5.1423460</td>
+<td class="gt_row gt_right">12.450883</td>
+<td class="gt_row gt_right">30.04484</td>
+<td class="gt_row gt_right">3.070786</td>
+<td class="gt_row gt_right">24.38490</td>
+<td class="gt_row gt_right">36.38633</td>
+<td class="gt_row gt_right">69.95516</td>
+<td class="gt_row gt_right">3.070786</td>
+<td class="gt_row gt_right">63.61367</td>
+<td class="gt_row gt_right">75.61510</td>
+<td class="gt_row gt_right">0.4484305</td>
+<td class="gt_row gt_right">0.4475343</td>
+<td class="gt_row gt_right">6.302837e-02</td>
+<td class="gt_row gt_right">3.116965e+00</td>
+<td class="gt_row gt_right">0.0000000</td>
+<td class="gt_row gt_right">0.0000000</td>
+<td class="gt_row gt_right">2.562617e-10</td>
+<td class="gt_row gt_right">3.283389e-10</td>
+<td class="gt_row gt_right">0.00000000</td>
+<td class="gt_row gt_right">0.00000000</td>
+<td class="gt_row gt_right">2.562617e-10</td>
+<td class="gt_row gt_right">3.283389e-10</td>
+<td class="gt_row gt_right">-1.5757399</td>
+<td class="gt_row gt_right">0.07326478</td>
+<td class="gt_row gt_right">-1.719422</td>
+<td class="gt_row gt_right">-1.4320577</td>
+<td class="gt_row gt_right">1.0962673</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">221</td>
+<td class="gt_row gt_right">221</td>
+<td class="gt_row gt_right">13.574661</td>
+<td class="gt_row gt_right">2.3046026</td>
+<td class="gt_row gt_right">9.653620</td>
+<td class="gt_row gt_right">18.757664</td>
+<td class="gt_row gt_right">31.67421</td>
+<td class="gt_row gt_right">3.130086</td>
+<td class="gt_row gt_right">25.875904</td>
+<td class="gt_row gt_right">38.10390</td>
+<td class="gt_row gt_right">64.70588</td>
+<td class="gt_row gt_right">3.215393</td>
+<td class="gt_row gt_right">58.17636</td>
+<td class="gt_row gt_right">70.72892</td>
+<td class="gt_row gt_right">0.0000000</td>
+<td class="gt_row gt_right">0.0000000</td>
+<td class="gt_row gt_right">2.561007e-10</td>
+<td class="gt_row gt_right">3.285453e-10</td>
+<td class="gt_row gt_right">0.0000000</td>
+<td class="gt_row gt_right">0.0000000</td>
+<td class="gt_row gt_right">2.561007e-10</td>
+<td class="gt_row gt_right">3.285453e-10</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">2.561007e-10</td>
+<td class="gt_row gt_right">3.285453e-10</td>
+<td class="gt_row gt_right">-1.588462</td>
+<td class="gt_row gt_right">0.07955142</td>
+<td class="gt_row gt_right">-1.744473</td>
+<td class="gt_row gt_right">-1.432450</td>
+<td class="gt_row gt_right">1.1849850</td></tr>
+    <tr><td class="gt_row gt_left">Age Group 1: 192-203 mo</td>
+<td class="gt_row gt_left">16</td>
+<td class="gt_row gt_left">(192-203)</td>
+<td class="gt_row gt_right">187</td>
+<td class="gt_row gt_right">187</td>
+<td class="gt_row gt_right">5.882353</td>
+<td class="gt_row gt_right">1.7210656</td>
+<td class="gt_row gt_right">3.2855080</td>
+<td class="gt_row gt_right">10.312863</td>
+<td class="gt_row gt_right">26.20321</td>
+<td class="gt_row gt_right">3.216491</td>
+<td class="gt_row gt_right">20.39733</td>
+<td class="gt_row gt_right">32.97706</td>
+<td class="gt_row gt_right">66.84492</td>
+<td class="gt_row gt_right">3.443464</td>
+<td class="gt_row gt_right">59.78394</td>
+<td class="gt_row gt_right">73.22146</td>
+<td class="gt_row gt_right">0.0000000</td>
+<td class="gt_row gt_right">0.0000000</td>
+<td class="gt_row gt_right">2.530158e-10</td>
+<td class="gt_row gt_right">3.325511e-10</td>
+<td class="gt_row gt_right">0.0000000</td>
+<td class="gt_row gt_right">0.0000000</td>
+<td class="gt_row gt_right">2.530158e-10</td>
+<td class="gt_row gt_right">3.325511e-10</td>
+<td class="gt_row gt_right">0.00000000</td>
+<td class="gt_row gt_right">0.00000000</td>
+<td class="gt_row gt_right">2.530158e-10</td>
+<td class="gt_row gt_right">3.325511e-10</td>
+<td class="gt_row gt_right">-1.5120856</td>
+<td class="gt_row gt_right">0.07151545</td>
+<td class="gt_row gt_right">-1.652337</td>
+<td class="gt_row gt_right">-1.3718341</td>
+<td class="gt_row gt_right">0.9803425</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">186</td>
+<td class="gt_row gt_right">186</td>
+<td class="gt_row gt_right">8.602151</td>
+<td class="gt_row gt_right">2.0564691</td>
+<td class="gt_row gt_right">5.334403</td>
+<td class="gt_row gt_right">13.584404</td>
+<td class="gt_row gt_right">30.10753</td>
+<td class="gt_row gt_right">3.364367</td>
+<td class="gt_row gt_right">23.944369</td>
+<td class="gt_row gt_right">37.08356</td>
+<td class="gt_row gt_right">63.97849</td>
+<td class="gt_row gt_right">3.520859</td>
+<td class="gt_row gt_right">56.82754</td>
+<td class="gt_row gt_right">70.55864</td>
+<td class="gt_row gt_right">0.5376344</td>
+<td class="gt_row gt_right">0.5363195</td>
+<td class="gt_row gt_right">7.555794e-02</td>
+<td class="gt_row gt_right">3.720341e+00</td>
+<td class="gt_row gt_right">0.0000000</td>
+<td class="gt_row gt_right">0.0000000</td>
+<td class="gt_row gt_right">2.529136e-10</td>
+<td class="gt_row gt_right">3.326856e-10</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">2.529136e-10</td>
+<td class="gt_row gt_right">3.326856e-10</td>
+<td class="gt_row gt_right">-1.476183</td>
+<td class="gt_row gt_right">0.07850928</td>
+<td class="gt_row gt_right">-1.630150</td>
+<td class="gt_row gt_right">-1.322215</td>
+<td class="gt_row gt_right">1.0733334</td></tr>
+    <tr><td class="gt_row gt_left">Age Group 1: 204-215 mo</td>
+<td class="gt_row gt_left">17</td>
+<td class="gt_row gt_left">(204-215)</td>
+<td class="gt_row gt_right">144</td>
+<td class="gt_row gt_right">144</td>
+<td class="gt_row gt_right">4.166667</td>
+<td class="gt_row gt_right">1.6656302</td>
+<td class="gt_row gt_right">1.8825350</td>
+<td class="gt_row gt_right">8.968866</td>
+<td class="gt_row gt_right">27.77778</td>
+<td class="gt_row gt_right">3.733448</td>
+<td class="gt_row gt_right">21.07393</td>
+<td class="gt_row gt_right">35.65091</td>
+<td class="gt_row gt_right">76.38889</td>
+<td class="gt_row gt_right">3.539967</td>
+<td class="gt_row gt_right">68.76614</td>
+<td class="gt_row gt_right">82.62142</td>
+<td class="gt_row gt_right">0.0000000</td>
+<td class="gt_row gt_right">0.0000000</td>
+<td class="gt_row gt_right">2.477866e-10</td>
+<td class="gt_row gt_right">3.395692e-10</td>
+<td class="gt_row gt_right">0.0000000</td>
+<td class="gt_row gt_right">0.0000000</td>
+<td class="gt_row gt_right">2.477866e-10</td>
+<td class="gt_row gt_right">3.395692e-10</td>
+<td class="gt_row gt_right">0.00000000</td>
+<td class="gt_row gt_right">0.00000000</td>
+<td class="gt_row gt_right">2.477866e-10</td>
+<td class="gt_row gt_right">3.395692e-10</td>
+<td class="gt_row gt_right">-1.5947917</td>
+<td class="gt_row gt_right">0.07363615</td>
+<td class="gt_row gt_right">-1.739202</td>
+<td class="gt_row gt_right">-1.4503812</td>
+<td class="gt_row gt_right">0.8864780</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">145</td>
+<td class="gt_row gt_right">145</td>
+<td class="gt_row gt_right">3.448276</td>
+<td class="gt_row gt_right">1.5156683</td>
+<td class="gt_row gt_right">1.441458</td>
+<td class="gt_row gt_right">8.021617</td>
+<td class="gt_row gt_right">24.13793</td>
+<td class="gt_row gt_right">3.554557</td>
+<td class="gt_row gt_right">17.860615</td>
+<td class="gt_row gt_right">31.76820</td>
+<td class="gt_row gt_right">60.00000</td>
+<td class="gt_row gt_right">4.069385</td>
+<td class="gt_row gt_right">51.82268</td>
+<td class="gt_row gt_right">67.65563</td>
+<td class="gt_row gt_right">0.6896552</td>
+<td class="gt_row gt_right">0.6874425</td>
+<td class="gt_row gt_right">9.690429e-02</td>
+<td class="gt_row gt_right">4.736292e+00</td>
+<td class="gt_row gt_right">0.6896552</td>
+<td class="gt_row gt_right">0.6874425</td>
+<td class="gt_row gt_right">9.690429e-02</td>
+<td class="gt_row gt_right">4.736292e+00</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">2.479318e-10</td>
+<td class="gt_row gt_right">3.393703e-10</td>
+<td class="gt_row gt_right">-1.315034</td>
+<td class="gt_row gt_right">0.08497109</td>
+<td class="gt_row gt_right">-1.481674</td>
+<td class="gt_row gt_right">-1.148395</td>
+<td class="gt_row gt_right">1.0264807</td></tr>
+    <tr><td class="gt_row gt_left">Age Group 1: 216-227 mo</td>
+<td class="gt_row gt_left">18</td>
+<td class="gt_row gt_left">(216-227)</td>
+<td class="gt_row gt_right">172</td>
+<td class="gt_row gt_right">172</td>
+<td class="gt_row gt_right">4.069767</td>
+<td class="gt_row gt_right">1.5069730</td>
+<td class="gt_row gt_right">1.9511984</td>
+<td class="gt_row gt_right">8.294049</td>
+<td class="gt_row gt_right">27.32558</td>
+<td class="gt_row gt_right">3.398744</td>
+<td class="gt_row gt_right">21.18505</td>
+<td class="gt_row gt_right">34.46760</td>
+<td class="gt_row gt_right">73.25581</td>
+<td class="gt_row gt_right">3.375815</td>
+<td class="gt_row gt_right">66.14404</td>
+<td class="gt_row gt_right">79.34030</td>
+<td class="gt_row gt_right">0.0000000</td>
+<td class="gt_row gt_right">0.0000000</td>
+<td class="gt_row gt_right">2.513980e-10</td>
+<td class="gt_row gt_right">3.346912e-10</td>
+<td class="gt_row gt_right">0.0000000</td>
+<td class="gt_row gt_right">0.0000000</td>
+<td class="gt_row gt_right">2.513980e-10</td>
+<td class="gt_row gt_right">3.346912e-10</td>
+<td class="gt_row gt_right">0.00000000</td>
+<td class="gt_row gt_right">0.00000000</td>
+<td class="gt_row gt_right">2.513980e-10</td>
+<td class="gt_row gt_right">3.346912e-10</td>
+<td class="gt_row gt_right">-1.5012209</td>
+<td class="gt_row gt_right">0.06434470</td>
+<td class="gt_row gt_right">-1.627410</td>
+<td class="gt_row gt_right">-1.3750323</td>
+<td class="gt_row gt_right">0.8461279</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">172</td>
+<td class="gt_row gt_right">172</td>
+<td class="gt_row gt_right">4.651163</td>
+<td class="gt_row gt_right">1.6061326</td>
+<td class="gt_row gt_right">2.341520</td>
+<td class="gt_row gt_right">9.028389</td>
+<td class="gt_row gt_right">19.18605</td>
+<td class="gt_row gt_right">3.003163</td>
+<td class="gt_row gt_right">13.969583</td>
+<td class="gt_row gt_right">25.76700</td>
+<td class="gt_row gt_right">61.04651</td>
+<td class="gt_row gt_right">3.719174</td>
+<td class="gt_row gt_right">53.55759</td>
+<td class="gt_row gt_right">68.04827</td>
+<td class="gt_row gt_right">0.0000000</td>
+<td class="gt_row gt_right">0.0000000</td>
+<td class="gt_row gt_right">2.513980e-10</td>
+<td class="gt_row gt_right">3.346912e-10</td>
+<td class="gt_row gt_right">0.0000000</td>
+<td class="gt_row gt_right">0.0000000</td>
+<td class="gt_row gt_right">2.513980e-10</td>
+<td class="gt_row gt_right">3.346912e-10</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">2.513980e-10</td>
+<td class="gt_row gt_right">3.346912e-10</td>
+<td class="gt_row gt_right">-1.289360</td>
+<td class="gt_row gt_right">0.06960969</td>
+<td class="gt_row gt_right">-1.425875</td>
+<td class="gt_row gt_right">-1.152846</td>
+<td class="gt_row gt_right">0.9153622</td></tr>
+    <tr><td class="gt_row gt_left">Age Group 1: 228-228 mo</td>
+<td class="gt_row gt_left">19</td>
+<td class="gt_row gt_left">(228-228)</td>
+<td class="gt_row gt_right">88</td>
+<td class="gt_row gt_right">88</td>
+<td class="gt_row gt_right">4.545455</td>
+<td class="gt_row gt_right">2.2210216</td>
+<td class="gt_row gt_right">1.7150761</td>
+<td class="gt_row gt_right">11.500243</td>
+<td class="gt_row gt_right">27.27273</td>
+<td class="gt_row gt_right">4.748744</td>
+<td class="gt_row gt_right">18.99468</td>
+<td class="gt_row gt_right">37.48883</td>
+<td class="gt_row gt_right">72.72727</td>
+<td class="gt_row gt_right">4.748744</td>
+<td class="gt_row gt_right">62.51117</td>
+<td class="gt_row gt_right">81.00532</td>
+<td class="gt_row gt_right">1.1363636</td>
+<td class="gt_row gt_right">1.1301674</td>
+<td class="gt_row gt_right">1.595822e-01</td>
+<td class="gt_row gt_right">7.634704e+00</td>
+<td class="gt_row gt_right">0.0000000</td>
+<td class="gt_row gt_right">0.0000000</td>
+<td class="gt_row gt_right">2.364184e-10</td>
+<td class="gt_row gt_right">3.558975e-10</td>
+<td class="gt_row gt_right">0.00000000</td>
+<td class="gt_row gt_right">0.00000000</td>
+<td class="gt_row gt_right">2.364184e-10</td>
+<td class="gt_row gt_right">3.558975e-10</td>
+<td class="gt_row gt_right">-1.6006818</td>
+<td class="gt_row gt_right">0.10709018</td>
+<td class="gt_row gt_right">-1.810700</td>
+<td class="gt_row gt_right">-1.3906634</td>
+<td class="gt_row gt_right">1.0101028</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">88</td>
+<td class="gt_row gt_right">88</td>
+<td class="gt_row gt_right">6.818182</td>
+<td class="gt_row gt_right">2.6876066</td>
+<td class="gt_row gt_right">3.093124</td>
+<td class="gt_row gt_right">14.364370</td>
+<td class="gt_row gt_right">15.90909</td>
+<td class="gt_row gt_right">3.899986</td>
+<td class="gt_row gt_right">9.650129</td>
+<td class="gt_row gt_right">25.09979</td>
+<td class="gt_row gt_right">57.95455</td>
+<td class="gt_row gt_right">5.263433</td>
+<td class="gt_row gt_right">47.43460</td>
+<td class="gt_row gt_right">67.79838</td>
+<td class="gt_row gt_right">0.0000000</td>
+<td class="gt_row gt_right">0.0000000</td>
+<td class="gt_row gt_right">2.364184e-10</td>
+<td class="gt_row gt_right">3.558975e-10</td>
+<td class="gt_row gt_right">0.0000000</td>
+<td class="gt_row gt_right">0.0000000</td>
+<td class="gt_row gt_right">2.364184e-10</td>
+<td class="gt_row gt_right">3.558975e-10</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">2.364184e-10</td>
+<td class="gt_row gt_right">3.558975e-10</td>
+<td class="gt_row gt_right">-1.317500</td>
+<td class="gt_row gt_right">0.09194379</td>
+<td class="gt_row gt_right">-1.497814</td>
+<td class="gt_row gt_right">-1.137186</td>
+<td class="gt_row gt_right">0.8672380</td></tr>
+    <tr><td class="gt_row gt_left">Age Group 2: 61-119 mo</td>
+<td class="gt_row gt_left">Total (5-9)</td>
+<td class="gt_row gt_left">(61-119)</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td></tr>
+    <tr><td class="gt_row gt_left">Age Group 2: 120-179 mo</td>
+<td class="gt_row gt_left">Total (10-14)</td>
+<td class="gt_row gt_left">(120-179)</td>
+<td class="gt_row gt_right">1211</td>
+<td class="gt_row gt_right">1211</td>
+<td class="gt_row gt_right">7.762180</td>
+<td class="gt_row gt_right">0.7690976</td>
+<td class="gt_row gt_right">6.3818041</td>
+<td class="gt_row gt_right">9.411115</td>
+<td class="gt_row gt_right">30.05780</td>
+<td class="gt_row gt_right">1.317903</td>
+<td class="gt_row gt_right">27.53816</td>
+<td class="gt_row gt_right">32.70393</td>
+<td class="gt_row gt_right">66.88687</td>
+<td class="gt_row gt_right">1.352713</td>
+<td class="gt_row gt_right">64.18255</td>
+<td class="gt_row gt_right">69.48409</td>
+<td class="gt_row gt_right">2.0644096</td>
+<td class="gt_row gt_right">0.4086987</td>
+<td class="gt_row gt_right">1.398201e+00</td>
+<td class="gt_row gt_right">3.038269e+00</td>
+<td class="gt_row gt_right">0.5780347</td>
+<td class="gt_row gt_right">0.2178980</td>
+<td class="gt_row gt_right">2.756401e-01</td>
+<td class="gt_row gt_right">1.208156e+00</td>
+<td class="gt_row gt_right">0.08257638</td>
+<td class="gt_row gt_right">0.08256265</td>
+<td class="gt_row gt_right">1.161159e-02</td>
+<td class="gt_row gt_right">5.847097e-01</td>
+<td class="gt_row gt_right">-1.4253344</td>
+<td class="gt_row gt_right">0.03219957</td>
+<td class="gt_row gt_right">-1.488482</td>
+<td class="gt_row gt_right">-1.3621867</td>
+<td class="gt_row gt_right">1.1207125</td>
+<td class="gt_row gt_right">305</td>
+<td class="gt_row gt_right">305</td>
+<td class="gt_row gt_right">10.819672</td>
+<td class="gt_row gt_right">1.779094</td>
+<td class="gt_row gt_right">7.792425</td>
+<td class="gt_row gt_right">14.83377</td>
+<td class="gt_row gt_right">50.81967</td>
+<td class="gt_row gt_right">2.863313</td>
+<td class="gt_row gt_right">45.21756</td>
+<td class="gt_row gt_right">56.40128</td>
+<td class="gt_row gt_right">83.27869</td>
+<td class="gt_row gt_right">2.137270</td>
+<td class="gt_row gt_right">78.65932</td>
+<td class="gt_row gt_right">87.06261</td>
+<td class="gt_row gt_right">1.3114754</td>
+<td class="gt_row gt_right">0.6515843</td>
+<td class="gt_row gt_right">0.4926827</td>
+<td class="gt_row gt_right">3.443930</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">2.615422e-10</td>
+<td class="gt_row gt_right">3.217098e-10</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">2.615422e-10</td>
+<td class="gt_row gt_right">3.217098e-10</td>
+<td class="gt_row gt_right">-1.825377</td>
+<td class="gt_row gt_right">0.06147733</td>
+<td class="gt_row gt_right">-1.945942</td>
+<td class="gt_row gt_right">-1.704812</td>
+<td class="gt_row gt_right">1.073834</td>
+<td class="gt_row gt_right">1199</td>
+<td class="gt_row gt_right">1199</td>
+<td class="gt_row gt_right">17.848207</td>
+<td class="gt_row gt_right">1.1061229</td>
+<td class="gt_row gt_right">15.781047</td>
+<td class="gt_row gt_right">20.121450</td>
+<td class="gt_row gt_right">42.86906</td>
+<td class="gt_row gt_right">1.429569</td>
+<td class="gt_row gt_right">40.091186</td>
+<td class="gt_row gt_right">45.69260</td>
+<td class="gt_row gt_right">74.14512</td>
+<td class="gt_row gt_right">1.264766</td>
+<td class="gt_row gt_right">71.58844</td>
+<td class="gt_row gt_right">76.54711</td>
+<td class="gt_row gt_right">0.8340284</td>
+<td class="gt_row gt_right">0.2627056</td>
+<td class="gt_row gt_right">4.490885e-01</td>
+<td class="gt_row gt_right">1.543806e+00</td>
+<td class="gt_row gt_right">0.1668057</td>
+<td class="gt_row gt_right">0.1178801</td>
+<td class="gt_row gt_right">4.167283e-02</td>
+<td class="gt_row gt_right">6.651800e-01</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">2.797554e-10</td>
+<td class="gt_row gt_right">3.007652e-10</td>
+<td class="gt_row gt_right">-1.829566</td>
+<td class="gt_row gt_right">0.03592601</td>
+<td class="gt_row gt_right">-1.900022</td>
+<td class="gt_row gt_right">-1.759111</td>
+<td class="gt_row gt_right">1.2442014</td></tr>
+    <tr><td class="gt_row gt_left">Age Group 2: 180-228 mo</td>
+<td class="gt_row gt_left">Total (15-19)</td>
+<td class="gt_row gt_left">(180-228)</td>
+<td class="gt_row gt_right">814</td>
+<td class="gt_row gt_right">814</td>
+<td class="gt_row gt_right">5.651106</td>
+<td class="gt_row gt_right">0.8095246</td>
+<td class="gt_row gt_right">4.2577897</td>
+<td class="gt_row gt_right">7.464820</td>
+<td class="gt_row gt_right">27.88698</td>
+<td class="gt_row gt_right">1.572181</td>
+<td class="gt_row gt_right">24.91046</td>
+<td class="gt_row gt_right">31.07198</td>
+<td class="gt_row gt_right">71.37592</td>
+<td class="gt_row gt_right">1.584662</td>
+<td class="gt_row gt_right">68.17013</td>
+<td class="gt_row gt_right">74.38018</td>
+<td class="gt_row gt_right">0.2457002</td>
+<td class="gt_row gt_right">0.1735656</td>
+<td class="gt_row gt_right">6.138569e-02</td>
+<td class="gt_row gt_right">9.780156e-01</td>
+<td class="gt_row gt_right">0.0000000</td>
+<td class="gt_row gt_right">0.0000000</td>
+<td class="gt_row gt_right">2.750453e-10</td>
+<td class="gt_row gt_right">3.059158e-10</td>
+<td class="gt_row gt_right">0.00000000</td>
+<td class="gt_row gt_right">0.00000000</td>
+<td class="gt_row gt_right">2.750453e-10</td>
+<td class="gt_row gt_right">3.059158e-10</td>
+<td class="gt_row gt_right">-1.5514373</td>
+<td class="gt_row gt_right">0.03410836</td>
+<td class="gt_row gt_right">-1.618328</td>
+<td class="gt_row gt_right">-1.4845462</td>
+<td class="gt_row gt_right">0.9734921</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">812</td>
+<td class="gt_row gt_right">812</td>
+<td class="gt_row gt_right">8.004926</td>
+<td class="gt_row gt_right">0.9525551</td>
+<td class="gt_row gt_right">6.324819</td>
+<td class="gt_row gt_right">10.083292</td>
+<td class="gt_row gt_right">25.61576</td>
+<td class="gt_row gt_right">1.532227</td>
+<td class="gt_row gt_right">22.727893</td>
+<td class="gt_row gt_right">28.73413</td>
+<td class="gt_row gt_right">62.19212</td>
+<td class="gt_row gt_right">1.702111</td>
+<td class="gt_row gt_right">58.80105</td>
+<td class="gt_row gt_right">65.46799</td>
+<td class="gt_row gt_right">0.2463054</td>
+<td class="gt_row gt_right">0.1739925</td>
+<td class="gt_row gt_right">6.153691e-02</td>
+<td class="gt_row gt_right">9.804109e-01</td>
+<td class="gt_row gt_right">0.1231527</td>
+<td class="gt_row gt_right">0.1231072</td>
+<td class="gt_row gt_right">1.731643e-02</td>
+<td class="gt_row gt_right">8.702197e-01</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">2.750152e-10</td>
+<td class="gt_row gt_right">3.059492e-10</td>
+<td class="gt_row gt_right">-1.421195</td>
+<td class="gt_row gt_right">0.03684849</td>
+<td class="gt_row gt_right">-1.493459</td>
+<td class="gt_row gt_right">-1.348930</td>
+<td class="gt_row gt_right">1.0504060</td></tr>
+    <tr><td class="gt_row gt_left">Age + Sex: Female.61-119 mo</td>
+<td class="gt_row gt_left">Total (5-9)</td>
+<td class="gt_row gt_left">(61-119)</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td></tr>
+    <tr><td class="gt_row gt_left">Age + Sex: Male.61-119 mo</td>
+<td class="gt_row gt_left">Total (5-9)</td>
+<td class="gt_row gt_left">(61-119)</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td></tr>
+    <tr><td class="gt_row gt_left">Age + Sex: Female.120-179 mo</td>
+<td class="gt_row gt_left">Total (10-14)</td>
+<td class="gt_row gt_left">(120-179)</td>
+<td class="gt_row gt_right">645</td>
+<td class="gt_row gt_right">645</td>
+<td class="gt_row gt_right">7.751938</td>
+<td class="gt_row gt_right">1.0532005</td>
+<td class="gt_row gt_right">5.9224218</td>
+<td class="gt_row gt_right">10.086026</td>
+<td class="gt_row gt_right">31.16279</td>
+<td class="gt_row gt_right">1.824136</td>
+<td class="gt_row gt_right">27.70214</td>
+<td class="gt_row gt_right">34.84738</td>
+<td class="gt_row gt_right">66.97674</td>
+<td class="gt_row gt_right">1.852249</td>
+<td class="gt_row gt_right">63.24866</td>
+<td class="gt_row gt_right">70.50301</td>
+<td class="gt_row gt_right">2.3255814</td>
+<td class="gt_row gt_right">0.5935858</td>
+<td class="gt_row gt_right">1.406152e+00</td>
+<td class="gt_row gt_right">3.822880e+00</td>
+<td class="gt_row gt_right">0.7751938</td>
+<td class="gt_row gt_right">0.3454161</td>
+<td class="gt_row gt_right">3.227826e-01</td>
+<td class="gt_row gt_right">1.849935e+00</td>
+<td class="gt_row gt_right">0.00000000</td>
+<td class="gt_row gt_right">0.00000000</td>
+<td class="gt_row gt_right">2.721480e-10</td>
+<td class="gt_row gt_right">3.091725e-10</td>
+<td class="gt_row gt_right">-1.4182791</td>
+<td class="gt_row gt_right">0.04479998</td>
+<td class="gt_row gt_right">-1.506138</td>
+<td class="gt_row gt_right">-1.3304202</td>
+<td class="gt_row gt_right">1.1383790</td>
+<td class="gt_row gt_right">173</td>
+<td class="gt_row gt_right">173</td>
+<td class="gt_row gt_right">12.716763</td>
+<td class="gt_row gt_right">2.533599</td>
+<td class="gt_row gt_right">8.518576</td>
+<td class="gt_row gt_right">18.56408</td>
+<td class="gt_row gt_right">54.33526</td>
+<td class="gt_row gt_right">3.788048</td>
+<td class="gt_row gt_right">46.86514</td>
+<td class="gt_row gt_right">61.61534</td>
+<td class="gt_row gt_right">83.23699</td>
+<td class="gt_row gt_right">2.840653</td>
+<td class="gt_row gt_right">76.91035</td>
+<td class="gt_row gt_right">88.09837</td>
+<td class="gt_row gt_right">1.7341040</td>
+<td class="gt_row gt_right">0.9927116</td>
+<td class="gt_row gt_right">0.5598307</td>
+<td class="gt_row gt_right">5.241642</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">2.515118e-10</td>
+<td class="gt_row gt_right">3.345397e-10</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">2.515118e-10</td>
+<td class="gt_row gt_right">3.345397e-10</td>
+<td class="gt_row gt_right">-1.830867</td>
+<td class="gt_row gt_right">0.08671229</td>
+<td class="gt_row gt_right">-2.000922</td>
+<td class="gt_row gt_right">-1.660812</td>
+<td class="gt_row gt_right">1.141124</td>
+<td class="gt_row gt_right">642</td>
+<td class="gt_row gt_right">642</td>
+<td class="gt_row gt_right">17.757009</td>
+<td class="gt_row gt_right">1.5085996</td>
+<td class="gt_row gt_right">14.988727</td>
+<td class="gt_row gt_right">20.910806</td>
+<td class="gt_row gt_right">42.36760</td>
+<td class="gt_row gt_right">1.950697</td>
+<td class="gt_row gt_right">38.594848</td>
+<td class="gt_row gt_right">46.23149</td>
+<td class="gt_row gt_right">73.52025</td>
+<td class="gt_row gt_right">1.741807</td>
+<td class="gt_row gt_right">69.96679</td>
+<td class="gt_row gt_right">76.79272</td>
+<td class="gt_row gt_right">1.0903427</td>
+<td class="gt_row gt_right">0.4099591</td>
+<td class="gt_row gt_right">5.203469e-01</td>
+<td class="gt_row gt_right">2.270470e+00</td>
+<td class="gt_row gt_right">0.1557632</td>
+<td class="gt_row gt_right">0.1556803</td>
+<td class="gt_row gt_right">2.190090e-02</td>
+<td class="gt_row gt_right">1.098824e+00</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">2.720886e-10</td>
+<td class="gt_row gt_right">3.092400e-10</td>
+<td class="gt_row gt_right">-1.801604</td>
+<td class="gt_row gt_right">0.04945350</td>
+<td class="gt_row gt_right">-1.898589</td>
+<td class="gt_row gt_right">-1.704619</td>
+<td class="gt_row gt_right">1.2537004</td></tr>
+    <tr><td class="gt_row gt_left">Age + Sex: Male.120-179 mo</td>
+<td class="gt_row gt_left">Total (10-14)</td>
+<td class="gt_row gt_left">(120-179)</td>
+<td class="gt_row gt_right">566</td>
+<td class="gt_row gt_right">566</td>
+<td class="gt_row gt_right">7.773852</td>
+<td class="gt_row gt_right">1.1257556</td>
+<td class="gt_row gt_right">5.8336797</td>
+<td class="gt_row gt_right">10.288785</td>
+<td class="gt_row gt_right">28.79859</td>
+<td class="gt_row gt_right">1.903833</td>
+<td class="gt_row gt_right">25.21322</td>
+<td class="gt_row gt_right">32.67106</td>
+<td class="gt_row gt_right">66.78445</td>
+<td class="gt_row gt_right">1.980192</td>
+<td class="gt_row gt_right">62.79396</td>
+<td class="gt_row gt_right">70.54769</td>
+<td class="gt_row gt_right">1.7667845</td>
+<td class="gt_row gt_right">0.5538854</td>
+<td class="gt_row gt_right">9.526976e-01</td>
+<td class="gt_row gt_right">3.253663e+00</td>
+<td class="gt_row gt_right">0.3533569</td>
+<td class="gt_row gt_right">0.2494808</td>
+<td class="gt_row gt_right">8.828794e-02</td>
+<td class="gt_row gt_right">1.403073e+00</td>
+<td class="gt_row gt_right">0.17667845</td>
+<td class="gt_row gt_right">0.17656586</td>
+<td class="gt_row gt_right">2.484103e-02</td>
+<td class="gt_row gt_right">1.245044e+00</td>
+<td class="gt_row gt_right">-1.4333746</td>
+<td class="gt_row gt_right">0.04625671</td>
+<td class="gt_row gt_right">-1.524090</td>
+<td class="gt_row gt_right">-1.3426589</td>
+<td class="gt_row gt_right">1.1011836</td>
+<td class="gt_row gt_right">132</td>
+<td class="gt_row gt_right">132</td>
+<td class="gt_row gt_right">8.333333</td>
+<td class="gt_row gt_right">2.406220</td>
+<td class="gt_row gt_right">4.672406</td>
+<td class="gt_row gt_right">14.42852</td>
+<td class="gt_row gt_right">46.21212</td>
+<td class="gt_row gt_right">4.340506</td>
+<td class="gt_row gt_right">37.88895</td>
+<td class="gt_row gt_right">54.75192</td>
+<td class="gt_row gt_right">83.33333</td>
+<td class="gt_row gt_right">3.244546</td>
+<td class="gt_row gt_right">75.97487</td>
+<td class="gt_row gt_right">88.77113</td>
+<td class="gt_row gt_right">0.7575758</td>
+<td class="gt_row gt_right">0.7548869</td>
+<td class="gt_row gt_right">0.1064389</td>
+<td class="gt_row gt_right">5.185260</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">2.459279e-10</td>
+<td class="gt_row gt_right">3.421355e-10</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">2.459279e-10</td>
+<td class="gt_row gt_right">3.421355e-10</td>
+<td class="gt_row gt_right">-1.818182</td>
+<td class="gt_row gt_right">0.08521821</td>
+<td class="gt_row gt_right">-1.985306</td>
+<td class="gt_row gt_right">-1.651057</td>
+<td class="gt_row gt_right">0.979707</td>
+<td class="gt_row gt_right">557</td>
+<td class="gt_row gt_right">557</td>
+<td class="gt_row gt_right">17.953321</td>
+<td class="gt_row gt_right">1.6266063</td>
+<td class="gt_row gt_right">14.981201</td>
+<td class="gt_row gt_right">21.366892</td>
+<td class="gt_row gt_right">43.44704</td>
+<td class="gt_row gt_right">2.100813</td>
+<td class="gt_row gt_right">39.381256</td>
+<td class="gt_row gt_right">47.60295</td>
+<td class="gt_row gt_right">74.86535</td>
+<td class="gt_row gt_right">1.838469</td>
+<td class="gt_row gt_right">71.09161</td>
+<td class="gt_row gt_right">78.29686</td>
+<td class="gt_row gt_right">0.5385996</td>
+<td class="gt_row gt_right">0.3101986</td>
+<td class="gt_row gt_right">1.736482e-01</td>
+<td class="gt_row gt_right">1.657822e+00</td>
+<td class="gt_row gt_right">0.1795332</td>
+<td class="gt_row gt_right">0.1794162</td>
+<td class="gt_row gt_right">2.524232e-02</td>
+<td class="gt_row gt_right">1.264977e+00</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">2.702484e-10</td>
+<td class="gt_row gt_right">3.113458e-10</td>
+<td class="gt_row gt_right">-1.861795</td>
+<td class="gt_row gt_right">0.05223124</td>
+<td class="gt_row gt_right">-1.964228</td>
+<td class="gt_row gt_right">-1.759363</td>
+<td class="gt_row gt_right">1.2334876</td></tr>
+    <tr><td class="gt_row gt_left">Age + Sex: Female.180-228 mo</td>
+<td class="gt_row gt_left">Total (15-19)</td>
+<td class="gt_row gt_left">(180-228)</td>
+<td class="gt_row gt_right">504</td>
+<td class="gt_row gt_right">504</td>
+<td class="gt_row gt_right">3.373016</td>
+<td class="gt_row gt_right">0.8043597</td>
+<td class="gt_row gt_right">2.1061006</td>
+<td class="gt_row gt_right">5.360308</td>
+<td class="gt_row gt_right">24.20635</td>
+<td class="gt_row gt_right">1.908416</td>
+<td class="gt_row gt_right">20.66244</td>
+<td class="gt_row gt_right">28.14248</td>
+<td class="gt_row gt_right">67.65873</td>
+<td class="gt_row gt_right">2.084166</td>
+<td class="gt_row gt_right">63.44464</td>
+<td class="gt_row gt_right">71.60445</td>
+<td class="gt_row gt_right">0.1984127</td>
+<td class="gt_row gt_right">0.1982647</td>
+<td class="gt_row gt_right">2.789613e-02</td>
+<td class="gt_row gt_right">1.396660e+00</td>
+<td class="gt_row gt_right">0.0000000</td>
+<td class="gt_row gt_right">0.0000000</td>
+<td class="gt_row gt_right">2.689117e-10</td>
+<td class="gt_row gt_right">3.128933e-10</td>
+<td class="gt_row gt_right">0.00000000</td>
+<td class="gt_row gt_right">0.00000000</td>
+<td class="gt_row gt_right">2.689117e-10</td>
+<td class="gt_row gt_right">3.128933e-10</td>
+<td class="gt_row gt_right">-1.4484325</td>
+<td class="gt_row gt_right">0.04027105</td>
+<td class="gt_row gt_right">-1.527410</td>
+<td class="gt_row gt_right">-1.3694556</td>
+<td class="gt_row gt_right">0.9047560</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">505</td>
+<td class="gt_row gt_right">505</td>
+<td class="gt_row gt_right">5.346535</td>
+<td class="gt_row gt_right">1.0013039</td>
+<td class="gt_row gt_right">3.690506</td>
+<td class="gt_row gt_right">7.686361</td>
+<td class="gt_row gt_right">20.79208</td>
+<td class="gt_row gt_right">1.806320</td>
+<td class="gt_row gt_right">17.471079</td>
+<td class="gt_row gt_right">24.55652</td>
+<td class="gt_row gt_right">57.22772</td>
+<td class="gt_row gt_right">2.202145</td>
+<td class="gt_row gt_right">52.86469</td>
+<td class="gt_row gt_right">61.48116</td>
+<td class="gt_row gt_right">0.1980198</td>
+<td class="gt_row gt_right">0.1978725</td>
+<td class="gt_row gt_right">2.784090e-02</td>
+<td class="gt_row gt_right">1.393922e+00</td>
+<td class="gt_row gt_right">0.1980198</td>
+<td class="gt_row gt_right">0.1978725</td>
+<td class="gt_row gt_right">2.784090e-02</td>
+<td class="gt_row gt_right">1.393922e+00</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">2.689386e-10</td>
+<td class="gt_row gt_right">3.128621e-10</td>
+<td class="gt_row gt_right">-1.271663</td>
+<td class="gt_row gt_right">0.04320720</td>
+<td class="gt_row gt_right">-1.356399</td>
+<td class="gt_row gt_right">-1.186928</td>
+<td class="gt_row gt_right">0.9716840</td></tr>
+    <tr><td class="gt_row gt_left">Age + Sex: Male.180-228 mo</td>
+<td class="gt_row gt_left">Total (15-19)</td>
+<td class="gt_row gt_left">(180-228)</td>
+<td class="gt_row gt_right">310</td>
+<td class="gt_row gt_right">310</td>
+<td class="gt_row gt_right">9.354839</td>
+<td class="gt_row gt_right">1.6543095</td>
+<td class="gt_row gt_right">6.5763938</td>
+<td class="gt_row gt_right">13.142014</td>
+<td class="gt_row gt_right">33.87097</td>
+<td class="gt_row gt_right">2.688662</td>
+<td class="gt_row gt_right">28.81350</td>
+<td class="gt_row gt_right">39.32574</td>
+<td class="gt_row gt_right">77.41935</td>
+<td class="gt_row gt_right">2.375304</td>
+<td class="gt_row gt_right">72.42572</td>
+<td class="gt_row gt_right">81.73669</td>
+<td class="gt_row gt_right">0.3225806</td>
+<td class="gt_row gt_right">0.3221394</td>
+<td class="gt_row gt_right">4.534680e-02</td>
+<td class="gt_row gt_right">2.256459e+00</td>
+<td class="gt_row gt_right">0.0000000</td>
+<td class="gt_row gt_right">0.0000000</td>
+<td class="gt_row gt_right">2.618006e-10</td>
+<td class="gt_row gt_right">3.213923e-10</td>
+<td class="gt_row gt_right">0.00000000</td>
+<td class="gt_row gt_right">0.00000000</td>
+<td class="gt_row gt_right">2.618006e-10</td>
+<td class="gt_row gt_right">3.213923e-10</td>
+<td class="gt_row gt_right">-1.7189032</td>
+<td class="gt_row gt_right">0.05990370</td>
+<td class="gt_row gt_right">-1.836383</td>
+<td class="gt_row gt_right">-1.6014239</td>
+<td class="gt_row gt_right">1.0561581</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">307</td>
+<td class="gt_row gt_right">307</td>
+<td class="gt_row gt_right">12.377850</td>
+<td class="gt_row gt_right">1.8800419</td>
+<td class="gt_row gt_right">9.136542</td>
+<td class="gt_row gt_right">16.559492</td>
+<td class="gt_row gt_right">33.55049</td>
+<td class="gt_row gt_right">2.695462</td>
+<td class="gt_row gt_right">28.485578</td>
+<td class="gt_row gt_right">39.02454</td>
+<td class="gt_row gt_right">70.35831</td>
+<td class="gt_row gt_right">2.607037</td>
+<td class="gt_row gt_right">65.00517</td>
+<td class="gt_row gt_right">75.20492</td>
+<td class="gt_row gt_right">0.3257329</td>
+<td class="gt_row gt_right">0.3252822</td>
+<td class="gt_row gt_right">4.578975e-02</td>
+<td class="gt_row gt_right">2.278147e+00</td>
+<td class="gt_row gt_right">0.0000000</td>
+<td class="gt_row gt_right">0.0000000</td>
+<td class="gt_row gt_right">2.616462e-10</td>
+<td class="gt_row gt_right">3.215819e-10</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">2.616462e-10</td>
+<td class="gt_row gt_right">3.215819e-10</td>
+<td class="gt_row gt_right">-1.667166</td>
+<td class="gt_row gt_right">0.06426834</td>
+<td class="gt_row gt_right">-1.793205</td>
+<td class="gt_row gt_right">-1.541127</td>
+<td class="gt_row gt_right">1.1276147</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="who-anthro-plus-software" class="slide level2">
+<h2>WHO Anthro-Plus Software</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<ul>
+<li><p>Works on Windows</p></li>
+<li><p>Requires dot net framework to be installed</p></li>
+<li><p>Available free and can be downloaded from <a href="https://www.who.int/tools/growth-reference-data-for-5to19-years/application-tools">here</a></p></li>
+</ul>
+</div><div class="column" style="width:60%;">
+<p><img data-src="images/Screenshot%202022-09-05%20at%2012.29.44%20PM-01.png" width="437"></p>
+</div>
+</div>
+
+<p><img src="images/logo_112.jpeg" class="slide-logo"></p>
+<div class="footer footer-default">
+
+</div>
+</section>
+    </div>
+  </div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': true,
+'smaller': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          // dispatch for htmlwidgets
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for reveal
+        if (window.Reveal) {
+          window.Reveal.addEventListener("slidechanged", function(event) {
+            fireSlideChanged(event.previousSlide, event.currentSlide);
+          });
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const clipboard = new window.ClipboardJS('.code-copy-button', {
+        target: function(trigger) {
+          return trigger.previousElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        setTimeout(function() {
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      });
+      function tippyHover(el, contentFn) {
+        const config = {
+          allowHTML: true,
+          content: contentFn,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'quarto-reveal',
+          placement: 'bottom-start'
+        };
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          let href = ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          return note.innerHTML;
+        });
+      }
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+        tippyHover(ref, function() {
+          var popup = window.document.createElement('div');
+          cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    });
+    </script>
+    
+
+</body></html>

@@ -6,15 +6,15 @@ bibliography: references.bib
 
 # Access the WHO Anthro & AnthroPlus software
 
-[**Information about tools**](https://apps.who.int/nutgrowthdb/software/en/ "WHO Webpage")**- Links for online and offline Anthro software for 0-5 years children**
+[Information about tools](https://apps.who.int/nutgrowthdb/software/en/ "WHO Webpage")- Links for online and offline Anthro software for 0-5 years children
 
-[**WHO Anthro Survey Analyser**](https://worldhealthorg.shinyapps.io/anthro/ "Online Tool")**- Online for 0-5 years children**
+[WHO Anthro Survey Analyser](https://worldhealthorg.shinyapps.io/anthro/ "Online Tool")- Online for 0-5 years children
 
-[**WHO AnthroPlus software**](https://www.who.int/tools/growth-reference-data-for-5to19-years/application-tools) **- For 5-19 years children**
+[WHO AnthroPlus software](https://www.who.int/tools/growth-reference-data-for-5to19-years/application-tools) - For 5-19 years children
 
 # Other Useful Tools
 
-[**Canadian Pediatric Endocrine Group - Shiny Apps for Anthropometric Calculations**](https://cpeg-gcep.net/content/shiny-apps "CEGP")
+[Canadian Pediatric Endocrine Group - Shiny Apps for Anthropometric Calculations](https://cpeg-gcep.net/content/shiny-apps "CEGP")
 
 -   [*who2007*](https://cpeg-gcep.shinyapps.io/who2007_cpeg/): a *Shiny* app for children ages 5--19 years, based on the [WHO growth *reference*](http://www.who.int/growthref/en/)
 
@@ -31,6 +31,8 @@ bibliography: references.bib
 -   [WHO Growth References for 5-19 years](https://www.who.int/tools/growth-reference-data-for-5to19-years/indicators)
 
 -   [Indian Academy of Pediatrics Growth Charts (0-18 years)](https://iapindia.org/iap-growth-charts/)
+
+-   [World Health Organization. Training Course on Child Growth Assessment](https://apps.who.int/iris/handle/10665/43601)
 
 # Additional interesting readings
 
