@@ -1,0 +1,62 @@
+---
+title: "Generating summary report, exporting z-scores data"
+author: "Abhijit P Pakhare"
+format: 
+    revealjs: 
+      slide-number: true
+      preview-links: auto
+      logo: images/logo_112.jpeg
+editor: visual
+---
+
+## The Last Button
+
+-   Template report for sharing results of anthropometric survey
+
+-   Summarizes demographics, data filtering automatically
+
+-   Word format - easy for editing
+
+-   Includes data quality parameters as well
+
+## The Last Button
+
+![](images/1_generating_summary.png)
+
+## Generate and download summary report
+
+![](images/2_generating_summary.png)
+
+-   It may take time if dataset is large
+
+-   Saved as word file
+
+Let's see summary [report](dataset_practice_2_report.docx) for dataset_practice_2
+
+## Exporting z-scores
+
+-   Many times only prevalence is not the objective
+
+-   Nutritional status as predictor or associated factor with some outcome
+
+-   Need raw z-scores
+
+-   Need computation of anthropometric indicator for further stratification
+
+-   For further detailed analysis
+
+## How to export z-scores?
+
+### Anthro Survey Analyser
+
+![](images/3_export_z_scores.png)
+
+## How to export z-scores?
+
+### Anthro and Anthro-Plus for Windows
+
+![](images/AnthroPlus%20Picture%208%20copy.png)
+
+## Queries?
+
+### Thank You

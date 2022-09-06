@@ -40,6 +40,8 @@ bibliography: references.bib
 
 -   The LMS method for constructing normalized growth standards[@cole1990]
 
+-   [Demystifying LMS and BCPE Methods of Centile Estimation for Growth and Other Health Parameters](https://www.indianpediatrics.net/jan2014/37.pdf) [@indrayan2014]
+
 -   Revised IAP Growth Reference[@khadilkar2015]
 
 -   Methods- WHO Growth Standards (0-5 years)[@borghi2006]

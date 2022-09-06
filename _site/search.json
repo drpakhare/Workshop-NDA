@@ -1,5 +1,54 @@
 [
   {
+    "objectID": "generating_summary_report.html#the-last-button",
+    "href": "generating_summary_report.html#the-last-button",
+    "title": "Generating summary report, exporting z-scores data",
+    "section": "The Last Button",
+    "text": "The Last Button\n\nTemplate report for sharing results of anthropometric survey\nSummarizes demographics, data filtering automatically\nWord format - easy for editing\nIncludes data quality parameters as well"
+  },
+  {
+    "objectID": "generating_summary_report.html#the-last-button-1",
+    "href": "generating_summary_report.html#the-last-button-1",
+    "title": "Generating summary report, exporting z-scores data",
+    "section": "The Last Button",
+    "text": "The Last Button"
+  },
+  {
+    "objectID": "generating_summary_report.html#generate-and-download-summary-report",
+    "href": "generating_summary_report.html#generate-and-download-summary-report",
+    "title": "Generating summary report, exporting z-scores data",
+    "section": "Generate and download summary report",
+    "text": "Generate and download summary report\n\n\nIt may take time if dataset is large\nSaved as word file\n\nLet’s see summary report for dataset_practice_2"
+  },
+  {
+    "objectID": "generating_summary_report.html#exporting-z-scores",
+    "href": "generating_summary_report.html#exporting-z-scores",
+    "title": "Generating summary report, exporting z-scores data",
+    "section": "Exporting z-scores",
+    "text": "Exporting z-scores\n\nMany times only prevalence is not the objective\nNutritional status as predictor or associated factor with some outcome\nNeed raw z-scores\nNeed computation of anthropometric indicator for further stratification\nFor further detailed analysis"
+  },
+  {
+    "objectID": "generating_summary_report.html#how-to-export-z-scores",
+    "href": "generating_summary_report.html#how-to-export-z-scores",
+    "title": "Generating summary report, exporting z-scores data",
+    "section": "How to export z-scores?",
+    "text": "How to export z-scores?\nAnthro Survey Analyser"
+  },
+  {
+    "objectID": "generating_summary_report.html#how-to-export-z-scores-1",
+    "href": "generating_summary_report.html#how-to-export-z-scores-1",
+    "title": "Generating summary report, exporting z-scores data",
+    "section": "How to export z-scores?",
+    "text": "How to export z-scores?\nAnthro and Anthro-Plus for Windows"
+  },
+  {
+    "objectID": "generating_summary_report.html#queries",
+    "href": "generating_summary_report.html#queries",
+    "title": "Generating summary report, exporting z-scores data",
+    "section": "Queries?",
+    "text": "Queries?\nThank You"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Workshop on Anthropometric Data Analysis",
@@ -214,7 +263,7 @@
     "href": "resources.html",
     "title": "Resources",
     "section": "",
-    "text": "Other Useful Tools\nCanadian Pediatric Endocrine Group - Shiny Apps for Anthropometric Calculations\n\nwho2007: a Shiny app for children ages 5–19 years, based on the WHO growth reference\nGrowth chart plotter for WHO (for children 2–19 years) and US CDC (2–20 years)\nGrowth chart plotter for WHO for children 0–2 years\nHow to create csv files and calculate age in months in excel?\n\n\n\nGrowth Standards\n\nWHO Growth Standards for 0-5 year Children\nWHO Growth References for 5-19 years\nIndian Academy of Pediatrics Growth Charts (0-18 years)\nWorld Health Organization. Training Course on Child Growth Assessment\n\n\n\nAdditional interesting readings\n\nWHO Technical Report : Physical status : the use of and interpretation of anthropometry, report of a WHO expert committee\nThe LMS method for constructing normalized growth standards(Cole 1990)\nRevised IAP Growth Reference(Khadilkar et al. 2015)\nMethods- WHO Growth Standards (0-5 years)(Borghi et al. 2006)\nMethods-WHO school age and adolescent growth reference development(Onis et al. 2007)\n\n\n\n\n\n\nReferences\n\nBorghi, E., M. de Onis, C. Garza, J. Van den Broeck, E. A. Frongillo, L. Grummer-Strawn, S. Van Buuren, et al. 2006. “Construction of the World Health Organization Child Growth Standards: Selection of Methods for Attained Growth Curves.” Statistics in Medicine 25 (2): 247–65. https://doi.org/10.1002/sim.2227.\n\n\nCole, T. J. 1990. “The LMS method for constructing normalized growth standards.” European Journal of Clinical Nutrition 44 (1): 45–60.\n\n\nKhadilkar, Vaman, Sangeeta Yadav, K. K. Agrawal, Suchit Tamboli, Monidipa Banerjee, Alice Cherian, Jagdish P. Goyal, et al. 2015. “Revised IAP Growth Charts for Height, Weight and Body Mass Index for 5- to 18-Year-Old Indian Children.” Indian Pediatrics 52 (1): 47–55. https://doi.org/10.1007/s13312-015-0566-5.\n\n\nOnis, Mercedes de, Adelheid W Onyango, Elaine Borghi, Amani Siyam, Chizuru Nishida, and Jonathan Siekmann. 2007. “Development of a WHO Growth Reference for School-Aged Children and Adolescents.” Bulletin of the World Health Organization 85 (9): 660–67. https://doi.org/10.2471/BLT.07.043497."
+    "text": "Other Useful Tools\nCanadian Pediatric Endocrine Group - Shiny Apps for Anthropometric Calculations\n\nwho2007: a Shiny app for children ages 5–19 years, based on the WHO growth reference\nGrowth chart plotter for WHO (for children 2–19 years) and US CDC (2–20 years)\nGrowth chart plotter for WHO for children 0–2 years\nHow to create csv files and calculate age in months in excel?\n\n\n\nGrowth Standards\n\nWHO Growth Standards for 0-5 year Children\nWHO Growth References for 5-19 years\nIndian Academy of Pediatrics Growth Charts (0-18 years)\nWorld Health Organization. Training Course on Child Growth Assessment\n\n\n\nAdditional interesting readings\n\nWHO Technical Report : Physical status : the use of and interpretation of anthropometry, report of a WHO expert committee\nThe LMS method for constructing normalized growth standards(Cole 1990)\nDemystifying LMS and BCPE Methods of Centile Estimation for Growth and Other Health Parameters (Indrayan 2014)\nRevised IAP Growth Reference(Khadilkar et al. 2015)\nMethods- WHO Growth Standards (0-5 years)(Borghi et al. 2006)\nMethods-WHO school age and adolescent growth reference development(Onis et al. 2007)\n\n\n\n\n\n\nReferences\n\nBorghi, E., M. de Onis, C. Garza, J. Van den Broeck, E. A. Frongillo, L. Grummer-Strawn, S. Van Buuren, et al. 2006. “Construction of the World Health Organization Child Growth Standards: Selection of Methods for Attained Growth Curves.” Statistics in Medicine 25 (2): 247–65. https://doi.org/10.1002/sim.2227.\n\n\nCole, T. J. 1990. “The LMS method for constructing normalized growth standards.” European Journal of Clinical Nutrition 44 (1): 45–60.\n\n\nIndrayan, Abhaya. 2014. “Demystifying LMS and BCPE methods of centile estimation for growth and other health parameters.” Indian Pediatrics 51 (1): 37–43. https://doi.org/10.1007/s13312-014-0310-6.\n\n\nKhadilkar, Vaman, Sangeeta Yadav, K. K. Agrawal, Suchit Tamboli, Monidipa Banerjee, Alice Cherian, Jagdish P. Goyal, et al. 2015. “Revised IAP Growth Charts for Height, Weight and Body Mass Index for 5- to 18-Year-Old Indian Children.” Indian Pediatrics 52 (1): 47–55. https://doi.org/10.1007/s13312-015-0566-5.\n\n\nOnis, Mercedes de, Adelheid W Onyango, Elaine Borghi, Amani Siyam, Chizuru Nishida, and Jonathan Siekmann. 2007. “Development of a WHO Growth Reference for School-Aged Children and Adolescents.” Bulletin of the World Health Organization 85 (9): 660–67. https://doi.org/10.2471/BLT.07.043497."
   },
   {
     "objectID": "Schedule.html",

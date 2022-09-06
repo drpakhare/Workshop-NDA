@@ -5,7 +5,7 @@ editor: visual
 
 # Presentation slides
 
-1.  Scientific basis of anthropometric measurements & indicators to monitor physical growth
+1.  [Scientific basis of anthropometric measurements & indicators to monitor physical growth](workshop_kit/Presentation_Slides/Session_1_anthropometry_fundamentals%20.pptx)
 
 2.  Introduction to Anthro Survey Analyser
 
@@ -17,10 +17,10 @@ editor: visual
 
 6.  Anthropometric Data Quality Assessment
 
-7.  Generating summary report, exporting z-scores data
+7.  [Generating summary report, exporting z-scores data](generating_summary_report.qmd)
 
 # Software Manuals
 
 [Anthro Survey Analyser - Quick Guide](https://apps.who.int/nutgrowthdb/about/06062019_Anthro_QuickGuide.pdf?ua=1)
 
-[Data Quality Assessment Guidelines](https://github.com/drpakhare/Workshop-NDA/blob/master/workshop_kit/Data%20Quality%20Assessment%20Guidance.docx)
+[Data Quality Assessment Guidelines](workshop_kit/Data_Quality_Assessment_Guidance.docx)
