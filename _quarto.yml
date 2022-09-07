@@ -3,6 +3,10 @@ project:
 
 website:
   title: "ADA Workshop"
+  twitter-card: true
+  reader-mode: true
+  google-analytics: "G-EB6VH8314S"
+  cookie-consent: true
   navbar:
     left:
       - href: index.qmd
